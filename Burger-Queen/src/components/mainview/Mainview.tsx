@@ -1,5 +1,5 @@
 import styles from './Mainview.module.css';
-import background from '../../assets/Fondo.png';
+/* import background from '../../assets/Fondo.png'; */
 import logo from '../../assets/fullLogo.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,13 +7,12 @@ const Mainview: React.FC = () => {
 
   const navigate = useNavigate();
   const navigateToLogin = (): void => {
-  // 👇️ navigate to /contacts
   navigate('/login');
   };
   return (
     <>
     {/* <article className="w-screen bg-center bg-no-repeat bg-cover min-h-screen" style={{ background: `url(${background})` }}> */}
-    <article className={styles.backgroundImageSection} style={{ background: `url(${background})` }}>
+    <article className={styles.backgroundImageSection} /* style={{ background: `url(${background})` }} */ >
       <article className={styles['container-mainview']}>
         <img className={styles.bigLogo} src={logo} alt="Mi imagen" />
         <article className={styles['welcomeMessage-article']}>
