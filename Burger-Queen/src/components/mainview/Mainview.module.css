@@ -1,0 +1,55 @@
+
+* {
+    margin: 0;
+    font-family: 'Hammersmith One', sans-serif;
+}
+  
+.backgroundImageSection{
+    width: 100%;
+    height: 100%;
+ /*    background-repeat: no-repeat; */
+   /*  background-size: cover; */
+    
+}
+
+.welcomeMessage-article{
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.mainViewTitle{
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    font-weight: 100;
+}
+
+.mainViewSubtitle{
+    font-size: 24px;
+    color:rgba(0, 0, 0, 0.49);
+}
+  
+.container-mainview{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+  
+.loginButon-mainview{
+    margin-top:5vh;
+    text-decoration: none;
+    border: none;
+    border-radius: 40px;
+    width: 20rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    color: #3EB856;
+    background: white;
+    font-weight: bold;
+}
