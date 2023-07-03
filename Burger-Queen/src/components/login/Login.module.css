@@ -62,3 +62,10 @@
   font-size: large;
   
 }
+
+.error{
+  color:red;
+  width: 20rem;
+  word-break: break-all;
+  text-align: center;
+}
