@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, /* useContext */ } from 'react';
 import styles from './Login.module.css'
 import background from '../../assets/fondo_login.png'
 import requestget from '../../request.ts'
+import { useNavigate } from 'react-router-dom';
+// import { AuthContext } from '../Authcontext/Authcontext.tsx';
 
 const Login: React.FC = () => {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
+    // const { setToken } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const navigateToOrder = (): void => {
+    navigate('/waiterorder');
+    };
+
     const handleLogin = () => {
         setError('');
+       
         requestget(user, password)
           .then(token => {
-            console.log(token)
+            // setToken(token);
+            localStorage.setItem('token', token);
+            navigateToOrder();
           })
           .catch(error => {
             setError(error.message);

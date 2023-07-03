@@ -1,0 +1,30 @@
+.order{
+    display:flex;
+    justify-content: space-between;
+    background-color: #F5F5F5;
+    height: 10vh;
+    margin-bottom: 2vh;
+    justify-content: center;
+    align-items: center;
+
+}
+p, span{
+    font-size: 20px;
+}
+
+.containerCuantity{
+    display:flex;
+    width:6vw;
+    justify-content: space-between;
+}
+.icon, .cancelorange{
+    width: 2vw;
+    height: 2vw;
+}
+.outicon{
+    position: absolute;
+    right:5%;
+}
+.orderProduct, .cancelorange{
+    margin-left:1vw;
+}
