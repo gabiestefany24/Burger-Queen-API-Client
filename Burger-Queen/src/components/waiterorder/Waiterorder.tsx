@@ -13,12 +13,13 @@ import checkwhite from '../../assets/checkwhite.png'
 const Waiterorder: React.FC = () => {
 
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
-    
+
     const handleRemoveItem = (itemId: number) => {
         setSelectedProducts((prevSelectedProducts) =>
           prevSelectedProducts.filter((product) => product.id !== itemId)
         );
       };
+    
 
     return (
         <>
@@ -40,7 +41,10 @@ const Waiterorder: React.FC = () => {
             <section className={styles.containerProductosResumen}>
                 <div className= {styles.products}>
                     <section className= {styles.cardsproducts}>
-                        {ProductCard && <ProductCard onSelectProduct={(product) => setSelectedProducts((prevProducts) => [...prevProducts, product])} />} 
+                        {ProductCard && 
+                        <ProductCard 
+                        selectedProducts={selectedProducts}
+                        onSelectProduct={(product) => setSelectedProducts((prevProducts) => [...prevProducts, product])} />} 
                     </section>
                 </div>
             <aside className= {styles.summary}>
@@ -52,10 +56,10 @@ const Waiterorder: React.FC = () => {
             {Ordersummary && <Ordersummary selectedProducts={selectedProducts} onRemoveItem={handleRemoveItem} />}
 
 
-            <div className={styles.containerTotal}>
+       {/*      <div className={styles.containerTotal}>
             <p className={styles.totalTitle}>Total</p>
-            <p className={styles.totalPrize}>$75.00</p>
-            </div>
+            <p className={styles.totalPrize}> ${calculateTotalPrice()}</p>
+            </div> */}
             <div className={styles.containerBtn}>
                 <button className={styles.btnRemove}><img className={styles.cancelorange} src={cancelwhite} alt="eliminar"></img>Borrar Orden</button>
                 <button className={styles.btnSend}><img className={styles.cancelorange} src={checkwhite} alt="enviar"></img>Enviar</button>
