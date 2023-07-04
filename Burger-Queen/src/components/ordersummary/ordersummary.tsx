@@ -1,20 +1,35 @@
-import React from 'react';
+import React, { useState }from 'react';
 import { Product } from '../productCard/ProductCard';
-import add from '../../assets/añadir.png'
-import reduce from '../../assets/disminuir.png'
-import cancelorange from '../../assets/cancelorange.png'
-import styles from './ordersummary.module.css'
-
+import add from '../../assets/añadir.png';
+import reduce from '../../assets/disminuir.png';
+import cancelorange from '../../assets/cancelorange.png';
+import styles from './ordersummary.module.css';
 
 interface OrdersummaryProps {
-    selectedProducts: Product[];
+  selectedProducts: Product[];
+  onRemoveItem: (itemId: number) => void;
 }
 
-const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts })=> {
-   
+const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveItem }) => {
+  const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
 
-      console.log('selectedProducts', selectedProducts)
-    return (
+  const decreaseQuantity = (itemId: number) => {
+    setQuantities((prevQuantities) => {
+      const quantity = prevQuantities[itemId] || 0;
+      const updatedQuantity = quantity > 0 ? quantity - 1 : 0;
+      return { ...prevQuantities, [itemId]: updatedQuantity };
+    });
+  };
+
+  const increaseQuantity = (itemId: number) => {
+    setQuantities((prevQuantities) => {
+      const quantity = prevQuantities[itemId] || 0;
+      const updatedQuantity = quantity + 1;
+      return { ...prevQuantities, [itemId]: updatedQuantity };
+    });
+  };
+
+  return (
     <>
     
       {selectedProducts.map((item, index) => (
@@ -25,16 +40,14 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts })=> {
               className={styles.icon}
               src={reduce}
               alt="disminuir"
-              
+              onClick={() => decreaseQuantity(item.id)}
             />
-            <p className={styles.orderCuantity}>
-            {1}
-            </p>
+            <p className={styles.orderCuantity}>{quantities[item.id] || 0}</p>
             <img
               className={styles.icon}
               src={add}
               alt="añadir"
-              
+              onClick={() => increaseQuantity(item.id)}
             />
           </div>
           <p className={styles.orderProduct}>{item.name}</p>
@@ -43,13 +56,12 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts })=> {
             className={styles.cancelorange}
             src={cancelorange}
             alt="eliminar"
-            
+            onClick={() => onRemoveItem(item.id)} // Llamar a la función onRemoveItem con el ID del producto
           />
         </div>
       ))}
     </>
   );
+};
 
-
-}
 export default Ordersummary;

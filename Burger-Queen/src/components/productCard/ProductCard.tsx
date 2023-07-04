@@ -14,7 +14,7 @@ interface ProductCardProps {
 }
   
 const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct }) => {
-  
+    
     const [products, setProducts] = useState<Product[]>([]);
 
     const token = localStorage.getItem('token');
