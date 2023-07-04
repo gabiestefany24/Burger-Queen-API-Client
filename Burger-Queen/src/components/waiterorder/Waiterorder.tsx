@@ -13,6 +13,12 @@ import checkwhite from '../../assets/checkwhite.png'
 const Waiterorder: React.FC = () => {
 
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
+    
+    const handleRemoveItem = (itemId: number) => {
+        setSelectedProducts((prevSelectedProducts) =>
+          prevSelectedProducts.filter((product) => product.id !== itemId)
+        );
+      };
 
     return (
         <>
@@ -43,7 +49,8 @@ const Waiterorder: React.FC = () => {
                 <input className={styles.inputCliente} type='text'/>
             </div>
 
-            {Ordersummary && <Ordersummary selectedProducts={selectedProducts}/>}
+            {Ordersummary && <Ordersummary selectedProducts={selectedProducts} onRemoveItem={handleRemoveItem} />}
+
 
             <div className={styles.containerTotal}>
             <p className={styles.totalTitle}>Total</p>
@@ -64,3 +71,4 @@ const Waiterorder: React.FC = () => {
 }
 
 export default Waiterorder
+

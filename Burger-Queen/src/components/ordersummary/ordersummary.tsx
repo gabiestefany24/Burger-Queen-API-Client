@@ -1,49 +1,18 @@
 import React, { useState } from 'react';
 import { Product } from '../productCard/ProductCard';
-import add from '../../assets/añadir.png'
-import reduce from '../../assets/disminuir.png'
-import cancelorange from '../../assets/cancelorange.png'
-import styles from './ordersummary.module.css'
-
-/* interface OrderItem extends Product {
-    quantity: number;
-  }
-   */
+import add from '../../assets/añadir.png';
+import reduce from '../../assets/disminuir.png';
+import cancelorange from '../../assets/cancelorange.png';
+import styles from './ordersummary.module.css';
 
 interface OrdersummaryProps {
-    selectedProducts: Product[];
+  selectedProducts: Product[];
+  onRemoveItem: (itemId: number) => void;
 }
 
-const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts })=> {
-   /*  const [orderItems, setOrderItems] = useState<OrderItem[]>([]) */
-   const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
-  
- /* 
-    const decreaseQuantity = (itemId: number) => {
-        setOrderItems((prevOrderItems) =>
-            prevOrderItems.map((item) =>
-                item.id === itemId && item.quantity > 1
-                    ? { ...item, quantity: item.quantity - 1 }
-                    : item
-            )
-        );
-    };
+const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveItem }) => {
+  const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
 
-    const increaseQuantity = (itemId: number) => {
-        setOrderItems((prevOrderItems) =>
-            prevOrderItems.map((item) =>
-                item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
-            )
-        );
-    };
-
-    const removeItem = (itemId: number) => {
-        setOrderItems((prevOrderItems) =>
-            prevOrderItems.filter((item) => item.id !== itemId)
-        );
-    }; */
-    
-    
   const decreaseQuantity = (itemId: number) => {
     setQuantities((prevQuantities) => {
       const quantity = prevQuantities[itemId] || 0;
@@ -60,13 +29,6 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts })=> {
     });
   };
 
-  const removeItem = (itemId: number) => {
-    setQuantities((prevQuantities) => {
-      const updatedQuantities = { ...prevQuantities };
-      delete updatedQuantities[itemId];
-      return updatedQuantities;
-    });
-  };
   return (
     <>
       {selectedProducts.map((item) => (
@@ -78,9 +40,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts })=> {
               alt="disminuir"
               onClick={() => decreaseQuantity(item.id)}
             />
-            <p className={styles.orderCuantity}>
-              {quantities[item.id] || 0}
-            </p>
+            <p className={styles.orderCuantity}>{quantities[item.id] || 0}</p>
             <img
               className={styles.icon}
               src={add}
@@ -94,13 +54,12 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts })=> {
             className={styles.cancelorange}
             src={cancelorange}
             alt="eliminar"
-            onClick={() => removeItem(item.id)}
+            onClick={() => onRemoveItem(item.id)} // Llamar a la función onRemoveItem con el ID del producto
           />
         </div>
       ))}
     </>
   );
+};
 
-
-}
 export default Ordersummary;

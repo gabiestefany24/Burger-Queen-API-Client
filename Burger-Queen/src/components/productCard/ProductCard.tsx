@@ -13,13 +13,6 @@ interface ProductCardProps {
 }
   
 const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct }) => {
-/*     interface Product {
-        id: number;
-        name: string;
-        price: number;
-        image: string;
-      }
- */
     
     const [products, setProducts] = useState<Product[]>([]);
 
