@@ -28,3 +28,19 @@ p, span{
 .orderProduct, .cancelorange{
     margin-left:1vw;
 }
+
+.orderProduct{
+    display:flex;
+    width: 15vw;
+}
+.containerTotal{
+    position: fixed;
+    top: 75%;
+    width: 34%;
+    display:flex;
+    justify-content: space-between;
+    padding: 2vw;
+    background-color: #F5F5F5;
+    height: 8vh;
+    font-weight: 500;
+}

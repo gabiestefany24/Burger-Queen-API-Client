@@ -11,9 +11,10 @@ export interface Product {
 
 interface ProductCardProps {
     onSelectProduct: (product: Product) => void;
+    selectedProducts: Product[];
 }
   
-const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct, selectedProducts }) => {
     
     const [products, setProducts] = useState<Product[]>([]);
 
@@ -40,21 +41,27 @@ const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct }) => {
       }, [token]);
 
      const handleProductClick = (product: Product) => {
-        onSelectProduct(product);
+        if (!selectedProducts.find((selectedProduct) => selectedProduct.id === product.id)) {
+            onSelectProduct(product);
+          }
       }; 
 
 
     return (
         <>
-      {products.map((product) => (
-        <div key={product.id} className={styles.cardProduct} onClick={() => handleProductClick(product)}>
-            <img className={styles.imgproduct} alt={product.name} src={product.image}></img>
-            <div className={styles.titlecard}>
-            <p>{product.name}</p>
-            <p>{product.price}</p>
-            </div>
-        </div>
-        ))} 
+            {products.map((product) => (
+                <div
+                    key={product.id}
+                    className={`${styles.cardProduct} ${selectedProducts.find((selectedProduct) => selectedProduct.id === product.id) ? styles.disabled : ''}`}
+                    onClick={() => handleProductClick(product)}
+                >
+                    <img className={styles.imgproduct} alt={product.name} src={product.image} />
+                    <div className={styles.titlecard}>
+                        <p>{product.name}</p>
+                        <p>{product.price}</p>
+                    </div>
+                </div>
+            ))} 
         </>
     ) 
 
