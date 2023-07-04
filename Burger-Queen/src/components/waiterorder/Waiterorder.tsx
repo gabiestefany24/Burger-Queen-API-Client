@@ -43,7 +43,8 @@ const Waiterorder: React.FC = () => {
                 <input className={styles.inputCliente} type='text'/>
             </div>
 
-            {Ordersummary && <Ordersummary selectedProducts={selectedProducts}/>}
+            {Ordersummary && <Ordersummary 
+            selectedProducts={selectedProducts} />}
 
             <div className={styles.containerTotal}>
             <p className={styles.totalTitle}>Total</p>

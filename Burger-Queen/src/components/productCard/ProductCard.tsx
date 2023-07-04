@@ -6,6 +6,7 @@ export interface Product {
     name: string;
     price: number;
     image: string;
+    quantity: number;
   }
 
 interface ProductCardProps {
@@ -13,14 +14,7 @@ interface ProductCardProps {
 }
   
 const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct }) => {
-/*     interface Product {
-        id: number;
-        name: string;
-        price: number;
-        image: string;
-      }
- */
-    
+  
     const [products, setProducts] = useState<Product[]>([]);
 
     const token = localStorage.getItem('token');
@@ -36,7 +30,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct }) => {
             });
     
             const data = await response.json();
-            console.log(data);
             setProducts(data);
           } catch (error) {
             console.error('Error fetching products:', error);
@@ -46,9 +39,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct }) => {
         fetchProducts();
       }, [token]);
 
-      const handleProductClick = (product: Product) => {
+     const handleProductClick = (product: Product) => {
         onSelectProduct(product);
-      };
+      }; 
+
 
     return (
         <>
