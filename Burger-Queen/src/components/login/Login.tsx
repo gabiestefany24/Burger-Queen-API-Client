@@ -1,7 +1,7 @@
 import React, { useState, /* useContext */ } from 'react';
 import styles from './Login.module.css'
 import background from '../../assets/fondo_login.png'
-import requestget from '../../request.ts'
+import { requestget } from '../../request/request'
 import { useNavigate } from 'react-router-dom';
 // import { AuthContext } from '../Authcontext/Authcontext.tsx';
 
@@ -9,8 +9,6 @@ const Login: React.FC = () => {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-
-    // const { setToken } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const navigateToOrder = (): void => {

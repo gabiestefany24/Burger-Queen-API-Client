@@ -42,7 +42,7 @@
     width: 26px;
     height: 21px
  }
-.containerClient{
+/* .containerClient{
     display:flex;
     justify-content: space-around;
     height: 6vh;
@@ -54,7 +54,7 @@
     background-color: #F5F5F5;
     border-radius: 5px;
     border: none;
-}
+} */
 .optionsNav{
     width: 60%;
     margin:2vw;
@@ -151,7 +151,7 @@
     margin-left:1vw;
 } */
 
-.containerBtn{
+/* .containerBtn{
     position: absolute;
     display: flex;
     gap:1vw;
@@ -180,7 +180,7 @@
 }
 .btnRemove{
     background-color: #FB892B;
-}
+} */
 
 /* .containerCuantity{
     display:flex;

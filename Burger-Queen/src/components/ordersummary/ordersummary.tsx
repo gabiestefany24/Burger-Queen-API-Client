@@ -4,15 +4,19 @@ import add from '../../assets/añadir.png';
 import reduce from '../../assets/disminuir.png';
 import cancelorange from '../../assets/cancelorange.png';
 import styles from './ordersummary.module.css';
+import { createOrder } from '../../utils/order';
+import cancelwhite from '../../assets/cancelwhite.png'
+import checkwhite from '../../assets/checkwhite.png'
 
 interface OrdersummaryProps {
   selectedProducts: Product[];
   onRemoveItem: (itemId: number) => void;
+  clearOrder: (setClient: React.Dispatch<React.SetStateAction<string>>) => void;
 }
 
-const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveItem }) => {
+const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveItem, clearOrder }) => {
   const [quantities, setQuantities] = useState<{ [key: number]: number }>({}); 
-
+  const [client, setClient] = useState<string>('');
 
   const calculateTotalPrice = () => {
     let totalPrice = 0;
@@ -56,6 +60,11 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
 
   return (
     <>
+      <div className = {styles.containerClient}>
+        <span>Cliente</span>
+        <input className={styles.inputCliente} type='text'  value={client}
+        onChange={(e) => setClient(e.target.value)}/>
+      </div>
       {selectedProducts.map((item, index) => (
         <div key={`${item.id}-${index}`} className={styles.order}>
           <div className={styles.containerCuantity}>
@@ -95,6 +104,12 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
             <p className={styles.totalTitle}>Total</p>
             <p className={styles.totalPrize}> ${calculateTotalPrice()}</p>
        </div>
+       <div className={styles.containerBtn}>
+                <button className={styles.btnRemove} onClick={() => {clearOrder(setClient)}}><img className={styles.cancelorange} src={cancelwhite} alt="eliminar"></img>Borrar Orden</button>
+                <button className={styles.btnSend} onClick={() => {createOrder(client, selectedProducts, quantities).then(()=> {
+                  clearOrder(setClient)
+                })}}><img className={styles.cancelorange} src={checkwhite} alt="enviar"></img>Enviar</button>
+        </div>
     </>
   );
 };
