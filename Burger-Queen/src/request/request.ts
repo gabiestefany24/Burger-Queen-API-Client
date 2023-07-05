@@ -28,6 +28,37 @@ function requestget(user: string, password: string): Promise<string> {
         throw error;
       });
   }
-  export default requestget;
+
+
+  function sendOrder(order: object): Promise<string> {
+    const token = localStorage.getItem('token');
+  
+    return fetch('http://localhost:8080/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(order)
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al publicar la orden');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("data:", data)
+        return (data)
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        throw error;
+      });
+  }
+  
+  export {requestget,
+          sendOrder
+        };
 
   

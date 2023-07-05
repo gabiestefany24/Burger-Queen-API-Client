@@ -6,8 +6,6 @@ import styles from './Waiterorder.module.css'
 import logo from '../../assets/smallLogo.png';
 import lupa from '../../assets/searchIcon.png'
 import outicon from '../../assets/outicon.png'
-import cancelwhite from '../../assets/cancelwhite.png'
-import checkwhite from '../../assets/checkwhite.png'
 
 
 const Waiterorder: React.FC = () => {
@@ -18,8 +16,12 @@ const Waiterorder: React.FC = () => {
         setSelectedProducts((prevSelectedProducts) =>
           prevSelectedProducts.filter((product) => product.id !== itemId)
         );
-      };
+    };
     
+    const clearOrder = (setClient: React.Dispatch<React.SetStateAction<string>>) => {
+        setSelectedProducts([]);
+        setClient('');
+    };
 
     return (
         <>
@@ -48,22 +50,7 @@ const Waiterorder: React.FC = () => {
                     </section>
                 </div>
             <aside className= {styles.summary}>
-            <div className = {styles.containerClient}>
-                <span>Cliente</span>
-                <input className={styles.inputCliente} type='text'/>
-            </div>
-
-            {Ordersummary && <Ordersummary selectedProducts={selectedProducts} onRemoveItem={handleRemoveItem} />}
-
-
-       {/*      <div className={styles.containerTotal}>
-            <p className={styles.totalTitle}>Total</p>
-            <p className={styles.totalPrize}> ${calculateTotalPrice()}</p>
-            </div> */}
-            <div className={styles.containerBtn}>
-                <button className={styles.btnRemove}><img className={styles.cancelorange} src={cancelwhite} alt="eliminar"></img>Borrar Orden</button>
-                <button className={styles.btnSend}><img className={styles.cancelorange} src={checkwhite} alt="enviar"></img>Enviar</button>
-            </div>
+            {Ordersummary && <Ordersummary selectedProducts={selectedProducts} onRemoveItem={handleRemoveItem} clearOrder={clearOrder} />}
             </aside>
             </section>
         </main>

@@ -28,7 +28,19 @@ p, span{
 .orderProduct, .cancelorange{
     margin-left:1vw;
 }
-
+.containerClient{
+    display:flex;
+    justify-content: space-around;
+    height: 6vh;
+    align-items: center;
+}
+.inputCliente{
+    height: 4vh;
+    width: 20vw;
+    background-color: #F5F5F5;
+    border-radius: 5px;
+    border: none;
+}
 .orderProduct{
     display:flex;
     width: 15vw;
@@ -43,4 +55,34 @@ p, span{
     background-color: #F5F5F5;
     height: 8vh;
     font-weight: 500;
+}
+.containerBtn{
+    position: absolute;
+    display: flex;
+    gap:1vw;
+    bottom: 3vh;
+
+}
+
+.btnRemove, .btnSend{
+    display:flex;
+    margin-top:5vh;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    width: 187px;
+    height: 55px;
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap:0.5vw;
+}
+.btnSend{
+    background-color: #09AA29;
+}
+.btnRemove{
+    background-color: #FB892B;
 }
