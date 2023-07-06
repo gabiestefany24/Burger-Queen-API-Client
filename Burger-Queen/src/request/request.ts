@@ -19,6 +19,7 @@ function requestget(user: string, password: string): Promise<string> {
       })
       .then(data => {
         const token: string = data.accessToken;
+        console.log(token)
         return token;
         // Aquí puedes realizar acciones adicionales con el token
       })
