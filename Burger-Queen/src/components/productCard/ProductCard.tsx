@@ -49,7 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct, selectedProd
                   <img className={styles.imgproduct} alt={product.name} src={product.image} />
                   <div className={styles.titlecard}>
                       <p>{product.name}</p>
-                      <p>{product.price}</p>
+                      <p className= {styles.price}>{`$${product.price}`}</p>
                   </div>
               </div>
           ))} 

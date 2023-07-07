@@ -67,14 +67,14 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
       </div>
       {selectedProducts.map((item, index) => (
         <div key={`${item.id}-${index}`} className={styles.order}>
-          <div className={styles.containerCuantity}>
+          <div className={styles.containerQuantity}>
             <img
               className={styles.icon}
               src={reduce}
               alt="disminuir"
               onClick={() => decreaseQuantity(item.id)}
             />
-            <p className={styles.orderCuantity}>{quantities[item.id] || 1}</p>
+            <p className={styles.orderQuantity}>{quantities[item.id] || 1}</p>
            
             <img
               className={styles.icon}
