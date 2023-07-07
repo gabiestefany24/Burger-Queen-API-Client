@@ -1,3 +1,5 @@
+import { Product } from "../components/productCard/ProductCard";
+
 function requestget(user: string, password: string): Promise<string> {
     const loginData = {
       email: user,
@@ -30,35 +32,55 @@ function requestget(user: string, password: string): Promise<string> {
   }
 
 
-  function sendOrder(order: object): Promise<string> {
-    const token = localStorage.getItem('token');
+function sendOrder(order: object): Promise<string> {
+  const token = localStorage.getItem('token');
   
-    return fetch('http://localhost:8080/orders', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-      body: JSON.stringify(order)
+  return fetch('http://localhost:8080/orders', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+       'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify(order)
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error al publicar la orden');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("data:", data)
-        return (data)
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        throw error;
-      });
-  }
+    .then(response => {
+       if (!response.ok) {
+        throw new Error('Error al publicar la orden');
+      }
+       return response.json();
+     })
+    .then(data => {
+      console.log("data:", data)
+      return (data)
+     })
+    .catch(error => {
+      console.error('Error:', error);
+      throw error;
+    });
+}
+
+const getProductData = async (token: string): Promise<Product[]> => {
+  console.log('paso por aqui')
+  try {
+    const response = await fetch('http://localhost:8080/products', {
+     headers: {
+     Authorization: `Bearer ${token}`,
+  },
+   });
   
-  export {requestget,
-          sendOrder
-        };
+  const data = await response.json();
+  return data;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    return [];
+  }
+};
+  
+ 
+export {
+  requestget,
+  sendOrder,
+  getProductData,
+};
 
   
