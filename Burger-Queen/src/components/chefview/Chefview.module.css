@@ -1,0 +1,100 @@
+body {
+    background-color: #F5F5F5;;
+}
+
+.containerheader {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+    background-color: #FFF
+}
+
+.inputContainer {
+    width: 80%;
+    display: flex;
+
+}
+
+.inputSearch {
+    width: 100%;
+    height: 44px;
+    border-radius: 10px;
+    background: #F5F5F5;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.lupa {
+    position: absolute;
+    margin-top: 1.5vh;
+    margin-left: 34vh;
+    width: 26px;
+    height: 21px
+}
+
+.outicon {
+    position: absolute;
+    right: 5%;
+}
+
+.btnNav {
+    display: flex;
+    width: 133px;
+    height: 36px;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #404040;
+    text-align: center;
+    font-family: Hammersmith One;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #FFF;
+    border: none;
+}
+
+
+.selectedBtnNav {
+    width: 151px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid #09AA29;
+    background: rgba(9, 170, 41, 0.06);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #09AA29;
+    text-align: center;
+}
+
+
+.buttonsNav {
+    width: 60%;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 50px
+}
+
+.optionsNav {
+    width: 60%;
+    margin: 2vw;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 6vh;
+
+}
+
+.containercheforders{
+    display:flex;
+    margin-top:15vh;
+    margin-left:5vw;
+    gap:2vw;
+}

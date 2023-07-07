@@ -1,0 +1,41 @@
+.clientname{
+    width: 181px;
+    height: 55px;
+    border-bottom: 2px solid #FB892B;
+}
+
+.btnready{
+    width: 186px;
+    height: 55px;
+    background-color: #FB892B;
+    color: #FFF;
+    text-align: center;
+    font-family: Hammersmith One;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    border-radius: 10px;
+}
+
+.containercheforder{
+    display:flex;
+    flex-direction: column;
+    width: 263px;
+    height: 512px;
+    border-radius: 10px;
+    background: rgba(9, 170, 41, 0.06);
+    padding: 2vw;
+    align-items: center;
+}
+.headercheforder{
+    display:flex;
+}
+.ordernumber{
+    width: 51px;
+    height: 44px;
+    border-radius: 10px 0px 0px 0px;
+    background: rgba(9, 170, 41, 0.69);
+
+}

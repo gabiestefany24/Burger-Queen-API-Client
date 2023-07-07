@@ -16,6 +16,7 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     align-items: center;
+    background-color: white;
 }
 .outicon{
     position: absolute;
@@ -43,19 +44,7 @@
     width: 26px;
     height: 21px
  }
-/* .containerClient{
-    display:flex;
-    justify-content: space-around;
-    height: 6vh;
-    align-items: center;
-}
-.inputCliente{
-    height: 4vh;
-    width: 20vw;
-    background-color: #F5F5F5;
-    border-radius: 5px;
-    border: none;
-} */
+
 .optionsNav{
     width: 60%;
     margin:2vw;
