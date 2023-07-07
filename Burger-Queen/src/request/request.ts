@@ -31,9 +31,10 @@ function requestget(user: string, password: string): Promise<string> {
       });
   }
 
-
+const token = localStorage.getItem('token');
+  
 function sendOrder(order: object): Promise<string> {
-  const token = localStorage.getItem('token');
+  
   
   return fetch('http://localhost:8080/orders', {
     method: 'POST',
@@ -60,7 +61,6 @@ function sendOrder(order: object): Promise<string> {
 }
 
 const getProductData = async (token: string): Promise<Product[]> => {
-  console.log('paso por aqui')
   try {
     const response = await fetch('http://localhost:8080/products', {
      headers: {
@@ -75,12 +75,37 @@ const getProductData = async (token: string): Promise<Product[]> => {
     return [];
   }
 };
+
+function getOrders() {
+  return fetch("http://localhost:8080/orders", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al traer las órdenes");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      throw error;
+    });
+}
   
  
 export {
   requestget,
   sendOrder,
   getProductData,
+  getOrders,
 };
 
   
