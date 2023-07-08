@@ -8,7 +8,7 @@ import { createOrder } from '../../utils/order';
 import cancelwhite from '../../assets/cancelwhite.png'
 import checkwhite from '../../assets/checkwhite.png'
 
-interface OrdersummaryProps {
+export interface OrdersummaryProps {
   selectedProducts: Product[];
   onRemoveItem: (itemId: number) => void;
   clearOrder: (setClient: React.Dispatch<React.SetStateAction<string>>) => void;
@@ -66,7 +66,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
         onChange={(e) => setClient(e.target.value)}/>
       </div>
       {selectedProducts.map((item, index) => (
-        <div key={`${item.id}-${index}`} className={styles.order}>
+        <div  key={`${item.id}-${index}`} className={styles.order}>
           <div className={styles.containerCuantity}>
             <img
               className={styles.icon}
@@ -74,9 +74,10 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
               alt="disminuir"
               onClick={() => decreaseQuantity(item.id)}
             />
-            <p className={styles.orderCuantity}>{quantities[item.id] || 1}</p>
+            <p className={styles.orderCuantity} data-testid={`p_quantity${item.id}`}>{quantities[item.id] || 1}</p>
            
             <img
+              data-testid={`add_${item.id}`}
               className={styles.icon}
               src={add}
               alt="añadir"
