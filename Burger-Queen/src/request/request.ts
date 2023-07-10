@@ -99,6 +99,26 @@ function getOrders() {
       throw error;
     });
 }
+
+function updateDataDelivering(id: number) {
+  const currentDate = new Date();
+  const timezoneOffset = currentDate.getTimezoneOffset() * 60000; // Get the time zone offset in milliseconds
+  const localDate = new Date(currentDate.getTime() - timezoneOffset); // Adjust the date based on the time zone offset
+  const formattedDate = localDate.toISOString().slice(0, 19).replace('T', ' ');
+  fetch(`http://localhost:8080/orders/${id}`, {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(
+      {
+        "status": "delivering",
+        "dataDelivering": formattedDate, 
+      }
+    )
+  })
+}
   
  
 export {
@@ -106,6 +126,7 @@ export {
   sendOrder,
   getProductData,
   getOrders,
+  updateDataDelivering,
 };
 
   

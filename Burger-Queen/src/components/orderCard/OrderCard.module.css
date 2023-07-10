@@ -41,6 +41,10 @@
     width: 263px;
     justify-content:space-between;
 }
+.containertime{
+    display:flex;
+    flex-direction: column;
+}
 
 .titleordertime{
     font-size: 10px;

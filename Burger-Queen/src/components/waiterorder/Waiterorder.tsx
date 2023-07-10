@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ProductCard,  {Product} from '../productCard/ProductCard';
 import Ordersummary from '../ordersummary/ordersummary';
 import styles from './Waiterorder.module.css'

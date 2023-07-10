@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./OrderCard.module.css";
 import iconclock from "../../assets/iconclock.png";
 import iconready from "../../assets/iconready.png";
-import { getOrders } from "../../request/request";
+import { getOrders, updateDataDelivering } from "../../request/request";
 
 interface Order {
     id: number;
@@ -20,24 +20,50 @@ interface Order {
     }[];
     status: string;
     dataEntry: string;
+    dataDelivering?: string;
     dateProcessed?: string;
 }
 
 const OrderCard: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
+  const notReadyOrders = orders.filter(order => order.status === 'pending');
+  const [readyOrders, setReadyOrders] = useState<Order[]>([]);
 
   useEffect(() => {
     const fetchOrders = async () => {
       const data = await getOrders();
       setOrders(data);
-    };
+    }; 
 
     fetchOrders();
   }, []);
 
+/*  const handleOrderReady = async (orderId: number) => {
+    await updateDataDelivering(orderId);
+    const updatedOrders = orders.filter((order) => order.status === 'pending');
+    setOrders(updatedOrders); 
+    
+  };  */
+  const handleOrderReady = async (orderId: number) => {
+    await updateDataDelivering(orderId);
+    const updatedOrders = orders.filter((order) => order.status === 'pending');
+    const readyOrder = updatedOrders.find((order) => order.id === orderId);
+    if (readyOrder) {
+      const updatedNotReadyOrders = updatedOrders.filter((order) => order.id !== orderId);
+      setOrders(updatedNotReadyOrders);
+      setReadyOrders((prevReadyOrders) => [...prevReadyOrders, readyOrder]);
+    }
+};
+  //   setOrders((prevOrders) =>
+  //     prevOrders.map((order) =>
+  //       order.id === orderId ? { ...order, status: "delivering" } : order
+  //     )
+  //   );
+  // };
+
   return (
     <>
-      {orders.map((order, index) => (
+      {notReadyOrders.map((order, index) => (
         <div key={`${order.id}_${index}`} className={styles.containercheforder}>
           <div className={styles.headercheforder}>
             <div className={styles.containerordernumber}>
@@ -48,8 +74,10 @@ const OrderCard: React.FC = () => {
               src={iconclock}
               alt="iconclock"
             ></img>
-            <p className={styles.titleordertime}>Hora del pedido</p>
-            <p className={styles.ordertime}></p>
+            <div className={styles.containertime}>
+              <p className={styles.titleordertime}>Hora del pedido</p>
+              <p className={styles.ordertime}>{order.dataEntry.slice(10)}</p>
+            </div>
           </div>
 
           <section className={styles.containerorderlist}>
@@ -64,7 +92,7 @@ const OrderCard: React.FC = () => {
               ))}
             </ul>
           </section>
-          <button className={styles.btnready}>
+          <button className={styles.btnready} onClick={() => handleOrderReady(order.id)}>
             <img
               className={styles.iconready}
               src={iconready}
