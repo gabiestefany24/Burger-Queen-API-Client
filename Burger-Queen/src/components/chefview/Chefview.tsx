@@ -1,11 +1,14 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
 import styles from "./Chefview.module.css";
 import logo from "../../assets/smallLogo.png";
 import lupa from "../../assets/searchIcon.png";
 import outicon from "../../assets/outicon.png";
 import OrderCard from "../orderCard/OrderCard";
+import handleLogout from '../Logout/Logout';
 
 const Chefview: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <>
       <header className={styles.containerheader}>
@@ -18,7 +21,7 @@ const Chefview: React.FC = () => {
           />
           <img className={styles.lupa} alt="lupa" src={lupa} />
         </form>
-        <img className={styles.outicon} src={outicon} alt="iconosalida"></img>
+        <img className={styles.outicon} src={outicon} alt="iconosalida" onClick={() => handleLogout(navigate)}></img>
       </header>
       <nav className={styles.optionsNav}>
         <div className={styles.buttonsNav}>
