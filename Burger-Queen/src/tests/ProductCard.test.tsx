@@ -20,6 +20,7 @@ jest.mock('../request/request', () => ({
             name: 'Product 1',
             price: 10,
             image: 'image-url',
+            type: 'desayuno',
             quantity: 1,
         },
     ]),
