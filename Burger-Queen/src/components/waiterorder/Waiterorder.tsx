@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
 import ProductCard, { Product } from '../productCard/ProductCard';
 import Ordersummary from '../ordersummary/ordersummary';
 import styles from './Waiterorder.module.css'
@@ -11,6 +10,7 @@ import outicon from '../../assets/outicon.png'
 const Waiterorder: React.FC = () => {
 
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
+    const [selectedCategory, setSelectedCategory] = useState<string>('');
 
     const handleRemoveItem = (itemId: number) => {
         setSelectedProducts((prevSelectedProducts) =>
@@ -22,6 +22,11 @@ const Waiterorder: React.FC = () => {
         setSelectedProducts([]);
         setClient('');
     };
+    
+    const handleCategoryClick = (category: string) => {
+        setSelectedCategory(category);
+    };
+
 
     return (
         <>
@@ -38,8 +43,8 @@ const Waiterorder: React.FC = () => {
                 <section className= {styles.nav}>
                     <nav className={styles.optionsNav}>
                         <div className={styles.buttonsNav}>
-                            <Link className={styles.btnDesayuno} to=''>Desayunos</Link>
-                            <Link className={styles.btnComidaCena} to='' >Comida/Cena</Link>
+                            <button className={`${styles.btnDesayuno} ${selectedCategory === 'Desayuno' ? styles.btnComidaCena : ''}`} onClick={() => handleCategoryClick('Desayuno')} >Desayunos</button>
+                            <button className={`${styles.btnDesayuno} ${selectedCategory === 'Almuerzo' ? styles.btnComidaCena : ''}`} onClick={() => handleCategoryClick('Almuerzo')}>Comida/Cena</button>
                         </div>
                     </nav>
                     <p className={styles.instructions}> Presione los productos que desee agregar a la orden. </p>
@@ -49,6 +54,7 @@ const Waiterorder: React.FC = () => {
                         <section className={styles.cardsproducts}>
                             {ProductCard &&
                                 <ProductCard
+                                    selectedCategory={selectedCategory}
                                     selectedProducts={selectedProducts}
                                     onSelectProduct={(product) => setSelectedProducts((prevProducts) => [...prevProducts, product])} />}
                         </section>
