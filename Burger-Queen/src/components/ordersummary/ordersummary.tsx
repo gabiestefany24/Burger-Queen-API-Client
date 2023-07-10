@@ -37,7 +37,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
    // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [selectedProducts]);
 
-   const decreaseQuantity = (itemId: number) => {
+    const decreaseQuantity = (itemId: number) => {
     setQuantities((prevQuantities) => {
       const quantity = prevQuantities[itemId] || 0;
       const updatedQuantity = quantity > 0 ? quantity - 1 : 0;
@@ -74,7 +74,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
               alt="disminuir"
               onClick={() => decreaseQuantity(item.id)}
             />
-            <p className={styles.orderCuantity} data-testid={`p_quantity${item.id}`}>{quantities[item.id] || 1}</p>
+            <p className={styles.orderCuantity} data-testid={`p_quantity${item.id}`}>{quantities[item.id]||1}</p>
            
             <img
               data-testid={`add_${item.id}`}
