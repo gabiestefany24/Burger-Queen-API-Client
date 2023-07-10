@@ -1,12 +1,19 @@
+
 .clientname{
     width: 181px;
-    height: 55px;
+    height: 35px;
     border-bottom: 2px solid #FB892B;
+    text-align: center;
+    color: #404040
+}
+.productList{
+    margin-top: 2vh;
 }
 
 .btnready{
     width: 186px;
     height: 55px;
+    margin-top: 3vh;
     background-color: #FB892B;
     color: #FFF;
     text-align: center;
@@ -26,16 +33,56 @@
     height: 512px;
     border-radius: 10px;
     background: rgba(9, 170, 41, 0.06);
-    padding: 2vw;
     align-items: center;
 }
 .headercheforder{
     display:flex;
+    height: 75px;
+    width: 263px;
+    justify-content:space-between;
 }
-.ordernumber{
+
+.titleordertime{
+    font-size: 10px;
+}
+.containerorderlist{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 208px;
+    height: 336px;
+    padding: 2vw;
+    align-items: center;
+}
+
+.containerordernumber{
+    display: flex;
     width: 51px;
     height: 44px;
     border-radius: 10px 0px 0px 0px;
     background: rgba(9, 170, 41, 0.69);
-
+    justify-content: center;
+    align-items: center;
+}
+.ordernumber{
+    font-size: 20px;
+    font-weight: 400;
+    color:white;  
+}
+.iconclock{
+    display: flex;
+    width: 40px;
+    height: 40px;
+}
+.productItem p{
+    display: flex;
+    font-size: 18px;
+    margin-top: 1vh;
+    font-family: 'Inter', sans-serif;
+    color: #404040;
+}
+.productItem{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
 }

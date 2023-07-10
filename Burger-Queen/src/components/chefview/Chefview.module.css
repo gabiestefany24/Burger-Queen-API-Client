@@ -55,6 +55,8 @@ body {
     line-height: normal;
     background-color: #FFF;
     border: none;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -77,19 +79,20 @@ body {
     border-radius: 10px;
     display: flex;
     justify-content: center;
-    gap: 50px
+    gap: 50px;
 }
 
 .optionsNav {
-    width: 60%;
+    width: 40%;
     margin: 2vw;
+    left: 30%;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     height: 6vh;
-
+    border-radius:10px ;
 }
 
 .containercheforders{

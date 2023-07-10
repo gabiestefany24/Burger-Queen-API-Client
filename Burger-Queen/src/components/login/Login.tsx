@@ -43,10 +43,10 @@ const Login: React.FC = () => {
         <article className= {styles.backgroundLogin} style={{ background: `url(${background})` }}>
             <article className={styles.container}>
                 <article className={styles['login-container']}>
-                    <h1 className={styles.loginTitle}>LOGIN</h1> 
+                    <h1 className={styles.loginTitle}>INICIA SESIÓN</h1> 
                     <h2 className={styles.loginSubtitle}>Ingresa tus credenciales de acceso</h2>
                     <form className={styles['login-form']}>
-                        <input className={styles.inputLogin} type='text' value={user}
+                        <input className={styles.inputLogin} type='text' autoComplete="current-password" value={user} 
         onChange={(e) => setUser(e.target.value)} placeholder='Usuario'></input>
                         <input className={styles.inputLogin} type='password'  value={password}
         onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña'></input>

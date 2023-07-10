@@ -12,7 +12,7 @@ p, span{
     font-size: 20px;
 }
 
-.containerCuantity{
+.containerQuantity{
     display:flex;
     width:6vw;
     justify-content: space-between;
@@ -62,6 +62,7 @@ p, span{
     display: flex;
     gap:1vw;
     bottom: 3vh;
+    width: 34%;
 
 }
 
@@ -75,15 +76,16 @@ p, span{
     height: 55px;
     color: white;
     font-size: 20px;
-    font-weight: 100;
-    justify-content: center;
+    font-weight: lighter;
+    justify-content: space-around;
+    padding: 1rem;
     align-items: center;
-    text-align: center;
-    gap:0.5vw;
 }
 .btnSend{
     background-color: #09AA29;
+    justify-content: center;
 }
 .btnRemove{
-    background-color: #FB892B;
+    background-color: rgba(251, 137, 43, 0.25);
+    color: #FB892B;
 }
