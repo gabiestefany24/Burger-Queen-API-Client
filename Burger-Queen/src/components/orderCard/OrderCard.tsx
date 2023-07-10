@@ -52,7 +52,7 @@ const OrderCard: React.FC = () => {
             <p className={styles.ordertime}></p>
           </div>
 
-          <div className={styles.containerorderlist}>
+          <section className={styles.containerorderlist}>
             <p className={styles.clientname}>{order.client}</p>
             
             <ul className={styles.productList}>
@@ -63,7 +63,7 @@ const OrderCard: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
           <button className={styles.btnready}>
             <img
               className={styles.iconready}
