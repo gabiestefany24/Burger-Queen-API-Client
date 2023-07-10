@@ -7,7 +7,7 @@ import styles from './Waiterorder.module.css'
 import logo from '../../assets/smallLogo.png';
 import lupa from '../../assets/searchIcon.png'
 import outicon from '../../assets/outicon.png'
-import handleLogout from '../Logout/Logout';
+import handleLogout from '../../utils/Logout';
 
 
 

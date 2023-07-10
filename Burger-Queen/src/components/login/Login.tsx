@@ -3,7 +3,7 @@ import styles from './Login.module.css'
 import background from '../../assets/fondo_login.png'
 import { requestget } from '../../request/request'
 import { useNavigate } from 'react-router-dom';
-import handleLogout from '../Logout/Logout';
+import handleLogout from '../../utils/Logout';
 
 // import { AuthContext } from '../Authcontext/Authcontext.tsx';
 
