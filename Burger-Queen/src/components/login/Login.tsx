@@ -3,6 +3,8 @@ import styles from './Login.module.css'
 import background from '../../assets/fondo_login.png'
 import { requestget } from '../../request/request'
 import { useNavigate } from 'react-router-dom';
+import handleLogout from '../Logout/Logout';
+
 // import { AuthContext } from '../Authcontext/Authcontext.tsx';
 
 const Login: React.FC = () => {
@@ -14,6 +16,12 @@ const Login: React.FC = () => {
     const navigateToOrder = (): void => {
     navigate('/waiterorder');
     };
+
+    const handleLogoutClick = () => {
+        handleLogout(navigate);
+      };
+
+    
 
     const handleLogin = () => {
         setError('');
@@ -28,7 +36,7 @@ const Login: React.FC = () => {
             setError(error.message);
           });
       };
-
+     
 
     return (
         <>
@@ -56,4 +64,4 @@ const Login: React.FC = () => {
 
 }
 
-export default Login
+export default  Login;

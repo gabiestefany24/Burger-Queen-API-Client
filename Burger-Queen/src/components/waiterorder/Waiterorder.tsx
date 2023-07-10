@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ProductCard,  {Product} from '../productCard/ProductCard';
 import Ordersummary from '../ordersummary/ordersummary';
 import styles from './Waiterorder.module.css'
 import logo from '../../assets/smallLogo.png';
 import lupa from '../../assets/searchIcon.png'
 import outicon from '../../assets/outicon.png'
+import handleLogout from '../Logout/Logout';
+
 
 
 const Waiterorder: React.FC = () => {
 
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
-
+    const navigate = useNavigate();
     const handleRemoveItem = (itemId: number) => {
         setSelectedProducts((prevSelectedProducts) =>
           prevSelectedProducts.filter((product) => product.id !== itemId)
@@ -31,7 +33,7 @@ const Waiterorder: React.FC = () => {
             <input className={styles.inputSearch} type='search' placeholder='Buscar productos' />
             <img className = {styles.lupa} alt="lupa" src={lupa} />
             </form>
-            <img className={styles.outicon} src={outicon} alt="iconosalida"></img> 
+            <img className={styles.outicon} src={outicon} alt="iconosalida" onClick={() => handleLogout(navigate)}></img> 
         </header>
         <main className = {styles.backgroundwaiterorder}>
             <nav className = {styles.optionsNav}>
