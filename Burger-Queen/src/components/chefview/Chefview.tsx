@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import styles from "./Chefview.module.css";
 import logo from "../../assets/smallLogo.png";
 import lupa from "../../assets/searchIcon.png";
@@ -9,6 +9,12 @@ import handleLogout from '../Logout/Logout';
 
 const Chefview: React.FC = () => {
   const navigate = useNavigate();
+  const [status, setStatus] = useState("pending");
+
+  const handleNavClick = (newStatus: string) => {
+    setStatus(newStatus);
+  };
+
   return (
     <>
       <header className={styles.containerheader}>
@@ -25,12 +31,12 @@ const Chefview: React.FC = () => {
       </header>
       <nav className={styles.optionsNav}>
         <div className={styles.buttonsNav}>
-          <button className={styles.btnNav}>Órdenes</button>
-          <button className={styles.btnNav}>Historial</button>
+          <button className={styles.btnNav} onClick={() => handleNavClick("pending")}>Órdenes</button>
+          <button className={styles.btnNav} onClick={() => handleNavClick("delivering")}>Historial</button>
         </div>
       </nav>
       <section className={styles.containercheforders}>
-        <OrderCard />
+        <OrderCard status={status} />
       </section>
     </>
   );
