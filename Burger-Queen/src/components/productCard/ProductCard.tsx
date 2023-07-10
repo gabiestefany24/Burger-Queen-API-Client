@@ -7,18 +7,20 @@ export interface Product {
   name: string;
   price: number;
   image: string;
+  type: string;
   quantity: number;
 }
 
 export interface ProductCardProps {
   onSelectProduct: (product: Product) => void;
   selectedProducts: Product[];
+  selectedCategory?: string;
 }
   
-const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct, selectedProducts }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct, selectedProducts, selectedCategory }) => {
     
   const [products, setProducts] = useState<Product[]>([]);
-
+  const filteredProducts = selectedCategory ? products.filter(product => product.type === selectedCategory) : products;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -39,7 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct, selectedProd
 
   return (
       <>
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
               <div
                   data-testid={`product_test_${product.id}`}
                   key={product.id}
