@@ -61,11 +61,14 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
               <div className={styles.containerordernumber}>
                 <p className={styles.ordernumber}>{order.id}</p>
               </div>
-              <img className={styles.iconclock} src={iconclock} alt="iconclock"></img>
-              <div className={styles.containertime}>
-                <p className={styles.titleordertime}>Hora del pedido</p>
-                <p className={styles.ordertime}>{order.dataEntry.slice(10)}</p>
+              <div className={styles.timeContainer}>
+                <img className={styles.iconclock} src={iconclock} alt="iconclock"></img>
+                <div className={styles.containertime}>
+                  <p className={styles.titleordertime}>Hora del pedido</p>
+                  <p className={styles.ordertime}>{order.dataEntry.slice(10)}</p>
+                </div>
               </div>
+              
             </div>
 
             <section className={styles.containerorderlist}>
@@ -92,11 +95,14 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
               <div className={styles.containerordernumber}>
                 <p className={styles.ordernumber}>{order.id}</p>
               </div>
-              <img className={styles.iconclock} src={iconclock} alt="iconclock"></img>
-              <div className={styles.containertime}>
-                <p className={styles.titleordertime}>Hora del pedido</p>
-                <p className={styles.ordertime}>{order.dataEntry.slice(10)}</p>
+              <div className={styles.timeContainer}>
+                <img className={styles.iconclock} src={iconclock} alt="iconclock"></img>
+                <div className={styles.containertime}>
+                  <p className={styles.titleordertime}>Hora del pedido</p>
+                  <p className={styles.ordertime}>{order.dataEntry.slice(10)}</p>
+                </div>
               </div>
+              
             </div>
 
             <section className={styles.containerorderlist}>
@@ -110,11 +116,12 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
                   </li>
                 ))}
               </ul>
-              <div className={styles.containerTotalTime}>
-                <p className={styles.titleordertime}>Tiempo total de preparación</p>
+            
+            </section>
+            <div className={styles.containerTotalTime}>
+                <p className={styles.orderTimeText}>Preparacion:</p>
                 <p className={styles.ordertime}>{calculateTotalPreparationTime(order.dataEntry, order.dataDelivering)}</p>
               </div>
-            </section>
           </div>
         ))}
     </>

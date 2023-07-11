@@ -41,9 +41,16 @@
     width: 263px;
     justify-content:space-between;
 }
+.timeContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem 0 0;
+}
 .containertime{
     display:flex;
     flex-direction: column;
+    gap: 0.15rem;
 }
 
 .titleordertime{
@@ -89,4 +96,12 @@
     display: flex;
     flex-direction: row;
     gap: 1vw;
+}
+.containerTotalTime{
+    padding-top: 2rem;
+    text-align: center;
+    color: #5E4463;
+}
+.orderTimeText{
+    font-size: 1.4rem;
 }
