@@ -23,13 +23,13 @@ const navigate = useNavigate();
           <img className={styles.lupa} alt="lupa" src={lupa} />
         </form>
         <div className={styles.containerIcons}>
-          <Link to="/waiterorder">
+          <Link className={styles.links} to="/waiterorder">
             <div className={styles.containerCreateOrderIcon}>
               <img className={styles.createOrderIcon} src={iconcreate}></img>
               <span>Crear orden</span>
             </div>
           </Link>
-          <Link to="/waiterdelivering">
+          <Link className={styles.links} to="/waiterdelivering">
             <div className={styles.containerOrdersIcon}>
               <img className={styles.ordersIcon} src={icondelivering}></img>
               <span>Órdenes</span>
