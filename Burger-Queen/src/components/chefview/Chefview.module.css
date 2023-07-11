@@ -96,8 +96,9 @@ body {
 }
 
 .containercheforders{
-    display:flex;
-    margin-top:15vh;
-    margin-left:5vw;
-    gap:2vw;
+    display: flex;
+    margin-top: 15vh;
+    margin-left: 5vw;
+    gap: 2vw;
+    overflow-y: auto;
 }
