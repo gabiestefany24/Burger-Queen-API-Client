@@ -13,11 +13,12 @@ const Login: React.FC = () => {
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
-    const navigateToOrder = (): void => {
+   /*  const navigateToOrder = (): void => {
     navigate('/waiterorder');
-    };
+    }; */
 
     const handleLogoutClick = () => {
+        
         handleLogout(navigate);
       };
 
@@ -25,12 +26,19 @@ const Login: React.FC = () => {
 
     const handleLogin = () => {
         setError('');
-       
+        localStorage.removeItem('userRole');
         requestget(user, password)
-          .then(token => {
-            // setToken(token);
-            localStorage.setItem('token', token);
-            navigateToOrder();
+          .then(() => {
+            const userRole = localStorage.getItem('userRole');
+            console.log(userRole);
+            if (userRole === 'admin'){
+              navigate('/adminview');
+            } else if (userRole === 'waiter') {
+              navigate('/waiterorder');
+            } else if (userRole === 'chef'){
+              navigate('/chefview');
+            }
+            // navigateToOrder();
           })
           .catch(error => {
             setError(error.message);

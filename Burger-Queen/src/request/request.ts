@@ -21,8 +21,11 @@ function requestget(user: string, password: string): Promise<string> {
       })
       .then(data => {
         const token: string = data.accessToken;
-        console.log(token)
-        return token;
+        localStorage.setItem('token', token);
+        const userRole = data.user.role;
+        localStorage.setItem('userRole', userRole);
+        console.log(token) 
+        return data;
         // Aquí puedes realizar acciones adicionales con el token
       })
       .catch(error => {

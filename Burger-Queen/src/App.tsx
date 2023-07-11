@@ -4,7 +4,8 @@ import Login from "./components/login/Login";
 import Waiterorder from "./components/waiterorder/Waiterorder";
 import Chefview from "./components/chefview/Chefview";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Waiterdelivering from "./components/waiterorder/waiterDelivering/WaiterDelivering";
+import Waiterdelivering from "./components/waiterorder/waiterdelivering/WaiterDelivering";
+import AdminView from "./components/adminview/AdminView"
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
         <Route path="/waiterorder" element={<Waiterorder />} />
         <Route path="/chefview" element={<Chefview />} />
         <Route path="/waiterdelivering" element={<Waiterdelivering />} />
+        <Route path="/adminview" element={<AdminView />} />
       </Routes>
     </BrowserRouter>
   );
