@@ -1,4 +1,3 @@
-
 .clientname{
     width: 181px;
     height: 35px;
@@ -9,7 +8,6 @@
 .productList{
     margin-top: 2vh;
 }
-
 .btnready{
     width: 186px;
     height: 55px;
@@ -25,7 +23,6 @@
     border: none;
     border-radius: 10px;
 }
-
 .containercheforder{
     display:flex;
     flex-direction: column;
@@ -52,7 +49,6 @@
     flex-direction: column;
     gap: 0.15rem;
 }
-
 .titleordertime{
     font-size: 10px;
 }
@@ -65,7 +61,6 @@
     padding: 2vw;
     align-items: center;
 }
-
 .containerordernumber{
     display: flex;
     width: 51px;
@@ -78,7 +73,7 @@
 .ordernumber{
     font-size: 20px;
     font-weight: 400;
-    color:white;  
+    color:white;
 }
 .iconclock{
     display: flex;
