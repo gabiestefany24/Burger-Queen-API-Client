@@ -43,6 +43,16 @@ const Waiterorder: React.FC = () => {
                     <input className={styles.inputSearch} type='search' placeholder='Buscar productos' />
                     <img className={styles.lupa} alt="lupa" src={lupa} />
                 </form>
+                <div className={styles.containerIcons}>
+                    <div className={styles.containerCreateOrderIcon}>
+                        <img className={styles.CreateOrderIcon}></img>
+                        <span>Crear orden</span>
+                    </div>
+                    <div className={styles.containerOrdersIcon}>
+                        <img className={styles.CreateOrdersIcon}></img>
+                        <span>Órdenes</span>
+                    </div>
+                </div>
                  <img className={styles.outicon} src={outicon} alt="iconosalida" onClick={() => handleLogout(navigate)}></img> 
             </header>
             <main className={styles.backgroundwaiterorder}>

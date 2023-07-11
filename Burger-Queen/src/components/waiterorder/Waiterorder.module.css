@@ -21,6 +21,14 @@
     align-items: center;
     background-color: white;
 }
+.containerIcons{
+    display: flex;
+    flex-direction: row;
+}
+.containerCreateOrderIcon, .containerOrdersIcon{
+    display: flex;
+    flex-direction: column;
+}
 .outicon{
     position: absolute;
     right:5%;
