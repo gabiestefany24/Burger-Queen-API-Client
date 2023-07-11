@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./OrderCard.module.css";
 import iconready from "../../assets/iconready.png"
+import icondelivered from "../../assets/icondelivered.png"
 import { getOrders, updateDataDelivering } from "../../request/request";
 import calculateTotalPreparationTime from "../../utils/totaltime";
 import OrderDefault from "../orderDefault/OrderDefault";
@@ -84,7 +85,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
         <div key={`${order.id}_${index}`} className={styles.containercheforder}>
           <OrderDefault order={order} />
           <button className={styles.btnready} onClick={() => handleOrderReady(order.id, "delivered")}>
-              <img className={styles.iconready} src={iconready} alt="iconready"></img> Entregado
+              <img className={styles.icondelivered} src={icondelivered} alt="icondelivered"></img> Entregado
           </button>
 
         </div>
