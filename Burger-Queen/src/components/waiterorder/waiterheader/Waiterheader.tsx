@@ -1,12 +1,12 @@
 import styles from './Waiterheader.module.css';
 import React from 'react';
 import {Link, useNavigate } from 'react-router-dom';
-import logo from '../../assets/smallLogo.png';
-import lupa from '../../assets/searchIcon.png'
-import outicon from '../../assets/outicon.png'
+import logo from '../../../assets/smallLogo.png'
+import lupa from '../../../assets/searchIcon.png'
+import outicon from '../../../assets/outicon.png'
 import handleLogout from '../../Logout/Logout';
-import iconcreate from '../../assets/iconcreate.png';
-import icondelivering from '../../assets/icondelivering.png';
+import iconcreate from '../../../assets/iconcreate.png';
+import icondelivering from '../../../assets/icondelivering.png';
 
 const Waiterheader: React.FC = () => {
 const navigate = useNavigate();
