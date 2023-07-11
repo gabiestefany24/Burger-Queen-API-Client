@@ -9,8 +9,8 @@ body {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     align-items: center;
-    background-color: #FFF
-}
+    background-color: #FFF;
+} 
 
 .inputContainer {
     width: 80%;
@@ -95,9 +95,11 @@ body {
     border-radius:10px ;
 }
 
-.containercheforders{
-    display:flex;
-    margin-top:15vh;
-    margin-left:5vw;
-    gap:2vw;
-}
+.containercheforders {
+    display: flex;
+    margin-top: 15vh;
+    margin-left: 5vw;
+    gap: 2vw;
+    overflow-y: auto;
+  }
+  

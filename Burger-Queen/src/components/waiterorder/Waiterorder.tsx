@@ -17,7 +17,7 @@ const Waiterorder: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const [selectedCategory, setSelectedCategory] = useState<string>('');
+    const [selectedCategory, setSelectedCategory] = useState<string>('Desayuno');
 
     const handleRemoveItem = (itemId: number) => {
         setSelectedProducts((prevSelectedProducts) =>
