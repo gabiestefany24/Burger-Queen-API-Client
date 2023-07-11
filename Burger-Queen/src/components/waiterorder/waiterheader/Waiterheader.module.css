@@ -28,7 +28,9 @@
     font-family: Inter;
 }
 
-
+.links{
+    text-decoration: none;
+}
 
 .outicon{
     position: absolute;

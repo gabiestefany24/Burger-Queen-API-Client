@@ -33,6 +33,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
   const [orders, setOrders] = useState<Order[]>([]);
   const notReadyOrders = orders.filter((order) => order.status === "pending");
   const readyOrders = orders.filter((order) => order.status === "delivering");
+  /* const completedOrders = orders.filter((order) => order.status === "delivered"); */
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -43,10 +44,10 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
     fetchOrders();
   }, []);
 
-  const handleOrderReady = async (orderId: number) => {
+  const handleOrderReady = async (orderId: number, statusText: string) => {
     await updateDataDelivering(orderId);
     const updatedOrders = orders.map((order) =>
-      order.id === orderId ? { ...order, status: "delivering" } : order
+      order.id === orderId ? { ...order, status: statusText } : order
     );
     setOrders(updatedOrders);
   };
@@ -58,7 +59,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
         notReadyOrders.map((order, index) => (
           <div key={`${order.id}_${index}`} className={styles.containercheforder}>
             <OrderDefault order={order} />
-            <button className={styles.btnready} onClick={() => handleOrderReady(order.id)}>
+            <button className={styles.btnready} onClick={() => handleOrderReady(order.id, "delivering")}>
               <img className={styles.iconready} src={iconready} alt="iconready"></img> Orden lista
             </button>
 
@@ -76,6 +77,18 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
 
           </div>
         ))
+      }
+
+      {status === "deliveringWaiter" &&
+      readyOrders.map((order, index) => (
+        <div key={`${order.id}_${index}`} className={styles.containercheforder}>
+          <OrderDefault order={order} />
+          <button className={styles.btnready} onClick={() => handleOrderReady(order.id, "delivered")}>
+              <img className={styles.iconready} src={iconready} alt="iconready"></img> Entregado
+          </button>
+
+        </div>
+      ))
       }
 
     </>
