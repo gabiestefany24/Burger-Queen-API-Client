@@ -1,13 +1,9 @@
 
 import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom'
 import ProductCard,  {Product} from '../productCard/ProductCard';
 import Ordersummary from '../ordersummary/ordersummary';
 import styles from './Waiterorder.module.css'
-import logo from '../../assets/smallLogo.png';
-import lupa from '../../assets/searchIcon.png'
-import outicon from '../../assets/outicon.png'
-import handleLogout from '../Logout/Logout';
+import Waiterheader from './waiterheader/Waiterheader';
 
 
 
@@ -15,7 +11,7 @@ const Waiterorder: React.FC = () => {
 
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
 
-    const navigate = useNavigate();
+   
 
     const [selectedCategory, setSelectedCategory] = useState<string>('Desayuno');
 
@@ -37,24 +33,7 @@ const Waiterorder: React.FC = () => {
 
     return (
         <>
-            <header className={styles.containerheader}>
-                <img className={styles.logo} src={logo} alt="Logo"></img>
-                <form className={styles.inputContainer}>
-                    <input className={styles.inputSearch} type='search' placeholder='Buscar productos' />
-                    <img className={styles.lupa} alt="lupa" src={lupa} />
-                </form>
-                <div className={styles.containerIcons}>
-                    <div className={styles.containerCreateOrderIcon}>
-                        <img className={styles.CreateOrderIcon}></img>
-                        <span>Crear orden</span>
-                    </div>
-                    <div className={styles.containerOrdersIcon}>
-                        <img className={styles.CreateOrdersIcon}></img>
-                        <span>Órdenes</span>
-                    </div>
-                </div>
-                 <img className={styles.outicon} src={outicon} alt="iconosalida" onClick={() => handleLogout(navigate)}></img> 
-            </header>
+            <Waiterheader />
             <main className={styles.backgroundwaiterorder}>
                 <aside className={styles.productsAside}>
                 <section className= {styles.nav}>
