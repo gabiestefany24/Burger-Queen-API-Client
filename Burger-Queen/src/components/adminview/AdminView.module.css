@@ -1,0 +1,49 @@
+.containerAdminView{
+    background-image: url('../../src/assets/FondoAdmWhite.png');
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+/* .containerTitleBtn{
+    display: flex;
+
+} */
+.containerbtn{
+    display:flex;
+    flex-direction:column;
+    align-items: flex-end;
+    padding: 10rem;
+    gap: 2rem;
+    width: 100vw;
+   
+}
+.adminviewtitle{
+    display:flex;
+    font-size:30px;
+    color:#404040;
+    margin-right: -3vw;
+    
+}
+.btnadmin{
+    width: 284px;
+    height: 90px;
+    background-color: #FB892B;
+    color:white;
+    border: none;
+    border-radius: 40px;
+    text-align: center;
+    font-family: Hammersmith One;
+    font-size: 24px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap:3vw;
+    justify-content: flex-start;
+    padding-left: 3vw;
+
+}
+.btnadmin p{
+    width: 6vw;
+}

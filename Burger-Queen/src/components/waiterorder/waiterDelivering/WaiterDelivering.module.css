@@ -1,0 +1,25 @@
+.containercheforders {
+    display: flex;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    gap: 2vw;
+    overflow-y: auto;
+  }
+  .containerdelivered{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    padding-top: 2vw;
+    height: 15vh;
+  }
+
+  .waiterdeliveringtitle{
+    font-size: 30px;
+    color: #404040;
+    width: 465px;
+    height: 36px;
+    text-align: center;
+  }

@@ -21,8 +21,11 @@ function requestget(user: string, password: string): Promise<string> {
       })
       .then(data => {
         const token: string = data.accessToken;
-        console.log(token)
-        return token;
+        localStorage.setItem('token', token);
+        const userRole = data.user.role;
+        localStorage.setItem('userRole', userRole);
+        console.log(token) 
+        return data;
         // Aquí puedes realizar acciones adicionales con el token
       })
       .catch(error => {
@@ -51,7 +54,7 @@ function sendOrder(order: object): Promise<string> {
        return response.json();
      })
     .then(data => {
-      console.log("data:", data)
+      
       return (data)
      })
     .catch(error => {
@@ -91,7 +94,6 @@ function getOrders() {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       return data;
     })
     .catch((error) => {

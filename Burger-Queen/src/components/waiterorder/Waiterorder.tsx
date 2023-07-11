@@ -1,13 +1,9 @@
 
 import React, {useState} from 'react';
-import { useNavigate } from 'react-router-dom'
 import ProductCard,  {Product} from '../productCard/ProductCard';
 import Ordersummary from '../ordersummary/ordersummary';
 import styles from './Waiterorder.module.css'
-import logo from '../../assets/smallLogo.png';
-import lupa from '../../assets/searchIcon.png'
-import outicon from '../../assets/outicon.png'
-import handleLogout from '../../utils/Logout';
+import Waiterheader from './waiterheader/Waiterheader';
 
 
 
@@ -15,9 +11,9 @@ const Waiterorder: React.FC = () => {
 
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
 
-    const navigate = useNavigate();
+   
 
-    const [selectedCategory, setSelectedCategory] = useState<string>('');
+    const [selectedCategory, setSelectedCategory] = useState<string>('Desayuno');
 
     const handleRemoveItem = (itemId: number) => {
         setSelectedProducts((prevSelectedProducts) =>
@@ -37,14 +33,7 @@ const Waiterorder: React.FC = () => {
 
     return (
         <>
-            <header className={styles.containerheader}>
-                <img className={styles.logo} src={logo} alt="Logo"></img>
-                <form className={styles.inputContainer}>
-                    <input className={styles.inputSearch} type='search' placeholder='Buscar productos' />
-                    <img className={styles.lupa} alt="lupa" src={lupa} />
-                </form>
-                 <img className={styles.outicon} src={outicon} alt="iconosalida" onClick={() => handleLogout(navigate)}></img> 
-            </header>
+            <Waiterheader />
             <main className={styles.backgroundwaiterorder}>
                 <aside className={styles.productsAside}>
                 <section className= {styles.nav}>

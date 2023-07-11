@@ -22,10 +22,6 @@
     line-height: normal;
     border: none;
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
 }
 .containercheforder{
     display:flex;

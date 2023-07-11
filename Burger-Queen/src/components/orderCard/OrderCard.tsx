@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./OrderCard.module.css";
-import iconclock from "../../assets/iconclock.png";
-import iconready from "../../assets/iconready.png";
+import iconready from "../../assets/iconready.png"
+import icondelivered from "../../assets/icondelivered.png"
 import { getOrders, updateDataDelivering } from "../../request/request";
 import calculateTotalPreparationTime from "../../utils/totaltime";
+import OrderDefault from "../orderDefault/OrderDefault";
 
 interface Order {
   id: number;
@@ -33,6 +34,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
   const [orders, setOrders] = useState<Order[]>([]);
   const notReadyOrders = orders.filter((order) => order.status === "pending");
   const readyOrders = orders.filter((order) => order.status === "delivering");
+  /* const completedOrders = orders.filter((order) => order.status === "delivered"); */
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -43,10 +45,10 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
     fetchOrders();
   }, []);
 
-  const handleOrderReady = async (orderId: number) => {
+  const handleOrderReady = async (orderId: number, statusText: string) => {
     await updateDataDelivering(orderId);
     const updatedOrders = orders.map((order) =>
-      order.id === orderId ? { ...order, status: "delivering" } : order
+      order.id === orderId ? { ...order, status: statusText } : order
     );
     setOrders(updatedOrders);
   };
@@ -57,66 +59,39 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
       {status === "pending" &&
         notReadyOrders.map((order, index) => (
           <div key={`${order.id}_${index}`} className={styles.containercheforder}>
-            <div className={styles.headercheforder}>
-              <div className={styles.containerordernumber}>
-                <p className={styles.ordernumber}>{order.id}</p>
-              </div>
-              <img className={styles.iconclock} src={iconclock} alt="iconclock"></img>
-              <div className={styles.containertime}>
-                <p className={styles.titleordertime}>Hora del pedido</p>
-                <p className={styles.ordertime}>{order.dataEntry.slice(10)}</p>
-              </div>
-            </div>
-
-            <section className={styles.containerorderlist}>
-              <p className={styles.clientname}>{order.client}</p>
-
-              <ul className={styles.productList}>
-                {order.products.map((productItem, index) => (
-                  <li key={index} className={styles.productItem}>
-                    <p> {productItem.qty} </p>
-                    <p className={styles.productName}>{productItem.product.name}</p>
-                  </li>
-                ))}
-              </ul>
-            </section>
-            <button className={styles.btnready} onClick={() => handleOrderReady(order.id)}>
+            <OrderDefault order={order} />
+            <button className={styles.btnready} onClick={() => handleOrderReady(order.id, "delivering")}>
               <img className={styles.iconready} src={iconready} alt="iconready"></img> Orden lista
             </button>
+
           </div>
-        ))}
+        ))
+      }
       {status === "delivering" &&
         readyOrders.map((order, index) => (
           <div key={`${order.id}_${index}`} className={styles.containercheforder}>
-            <div className={styles.headercheforder}>
-              <div className={styles.containerordernumber}>
-                <p className={styles.ordernumber}>{order.id}</p>
-              </div>
-              <img className={styles.iconclock} src={iconclock} alt="iconclock"></img>
-              <div className={styles.containertime}>
-                <p className={styles.titleordertime}>Hora del pedido</p>
-                <p className={styles.ordertime}>{order.dataEntry.slice(10)}</p>
-              </div>
+            <OrderDefault order={order} />
+            <div className={styles.containerTotalTime}>
+              <p className={styles.orderTimeText}>Preparación:</p>
+              <p className={styles.ordertime}>{calculateTotalPreparationTime(order.dataEntry, order.dataDelivering)}</p>
             </div>
 
-            <section className={styles.containerorderlist}>
-              <p className={styles.clientname}>{order.client}</p>
-
-              <ul className={styles.productList}>
-                {order.products.map((productItem, index) => (
-                  <li key={index} className={styles.productItem}>
-                    <p> {productItem.qty} </p>
-                    <p className={styles.productName}>{productItem.product.name}</p>
-                  </li>
-                ))}
-              </ul>
-              <div className={styles.containerTotalTime}>
-                <p className={styles.titleordertime}>Tiempo total de preparación</p>
-                <p className={styles.ordertime}>{calculateTotalPreparationTime(order.dataEntry, order.dataDelivering)}</p>
-              </div>
-            </section>
           </div>
-        ))}
+        ))
+      }
+
+      {status === "deliveringWaiter" &&
+      readyOrders.map((order, index) => (
+        <div key={`${order.id}_${index}`} className={styles.containercheforder}>
+          <OrderDefault order={order} />
+          <button className={styles.btnready} onClick={() => handleOrderReady(order.id, "delivered")}>
+              <img className={styles.icondelivered} src={icondelivered} alt="icondelivered"></img> Entregado
+          </button>
+
+        </div>
+      ))
+      }
+
     </>
   );
 };
