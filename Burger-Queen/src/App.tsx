@@ -4,7 +4,7 @@ import Login from "./components/login/Login";
 import Waiterorder from "./components/waiterorder/Waiterorder";
 import Chefview from "./components/chefview/Chefview";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Waiterdelivering from "./components/waiterorder/waiterDelivering/WaiterDelivering";
+import Waiterdelivering from "./components/waiterorder/waiterdelivering/WaiterDelivering";
 
 const App: React.FC = () => {
   return (
