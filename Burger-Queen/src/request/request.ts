@@ -1,6 +1,26 @@
 import { Product } from "../components/productCard/ProductCard";
 
-function requestget(user: string, password: string): Promise<string> {
+// interface Data {
+//   accessToken: string,
+//   user: {
+//       email: string,
+//       role: string,
+//       id: number,
+//   }[];
+// }
+
+interface User {
+  email: string;
+  role: string;
+  id: number;
+}
+
+interface AuthResponse {
+  accessToken: string;
+  user: User;
+}
+
+function requestget(user: string, password: string): Promise<AuthResponse> {
     const loginData = {
       email: user,
       password: password
@@ -20,12 +40,9 @@ function requestget(user: string, password: string): Promise<string> {
         return response.json();
       })
       .then(data => {
-        const token: string = data.accessToken;
-        localStorage.setItem('token', token);
-        const userRole = data.user.role;
-        localStorage.setItem('userRole', userRole);
-        console.log(token) 
+        
         return data;
+        
         // Aquí puedes realizar acciones adicionales con el token
       })
       .catch(error => {

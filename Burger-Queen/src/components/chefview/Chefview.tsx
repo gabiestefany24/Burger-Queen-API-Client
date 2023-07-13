@@ -5,7 +5,7 @@ import logo from "../../assets/smallLogo.png";
 import lupa from "../../assets/searchIcon.png";
 import outicon from "../../assets/outicon.png";
 import OrderCard from "../orderCard/OrderCard";
-import handleLogout from '../Logout/Logout';
+import handleLogout from '../../utils/Logout';
 
 const Chefview: React.FC = () => {
   const navigate = useNavigate();
