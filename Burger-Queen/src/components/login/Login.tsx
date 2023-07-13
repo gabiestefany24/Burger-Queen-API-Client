@@ -3,9 +3,15 @@ import styles from './Login.module.css'
 import background from '../../assets/fondo_login.png'
 import { requestget } from '../../request/request'
 import { useNavigate } from 'react-router-dom';
-import handleLogout from '../../utils/Logout';
+// import handleLogout from '../../utils/Logout';
 
 // import { AuthContext } from '../Authcontext/Authcontext.tsx';
+
+// export interface LoginProps extends React.HTMLAttributes<HTMLButtonElement> {
+//   handleLogin?: () => void;
+//   requestget: () => Promise<void>; // Agrega la propiedad requestget al tipo LoginProps
+//   navigate: () => void; // Agrega la propiedad navigate al tipo LoginProps
+// }
 
 const Login: React.FC = () => {
     const [user, setUser] = useState('');
@@ -17,19 +23,26 @@ const Login: React.FC = () => {
     navigate('/waiterorder');
     }; */
 
-    const handleLogoutClick = () => {
+    // const handleLogoutClick = () => {
         
-        handleLogout(navigate);
-      };
+    //     handleLogout(navigate);
+    //   };
 
     
 
-    const handleLogin = () => {
+    const handleLogin  = () => {
         setError('');
-        localStorage.removeItem('userRole');
+        // localStorage.removeItem('userRole');
         requestget(user, password)
-          .then(() => {
-            const userRole = localStorage.getItem('userRole');
+          .then((data) => {
+            const token: string = data.accessToken;
+            localStorage.setItem('token', token);
+            const userRole = data.user.role;
+            localStorage.setItem('userRole', userRole);
+            console.log(token) 
+            console.log(data)
+            // navigate('/waiterorder');
+            // const userRole = localStorage.getItem('userRole');
             console.log(userRole);
             if (userRole === 'admin'){
               navigate('/adminview');
