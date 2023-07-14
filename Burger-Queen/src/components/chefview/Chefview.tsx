@@ -5,9 +5,12 @@ import logo from "../../assets/smallLogo.png";
 import lupa from "../../assets/searchIcon.png";
 import outicon from "../../assets/outicon.png";
 import OrderCard from "../orderCard/OrderCard";
-import handleLogout from '../../utils/Logout';
+import handleLogout from "../../utils/Logout"
 
-const Chefview: React.FC = () => {
+
+
+
+const Chefview: React.FC = ()  => {
   const navigate = useNavigate();
   const [status, setStatus] = useState("pending");
 
@@ -36,6 +39,7 @@ const Chefview: React.FC = () => {
         </div>
       </nav>
       <section className={styles.containercheforders}>
+      <div data-testid="status">{status}</div>
         <OrderCard status={status} />
       </section>
     </>
