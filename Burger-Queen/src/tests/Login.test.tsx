@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import "@testing-library/jest-dom";
 import { render, waitFor, fireEvent, screen} from "@testing-library/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -16,12 +14,15 @@ jest.mock("../../src/request/request", () => ({
 
 const requestgetMock = requestget as jest.MockedFunction<typeof requestget>;
 
- 
-  
-
 describe("Login", () => {
 
- 
+  beforeEach (()=>{
+      window.history.pushState(
+      {},
+      '/',
+      window.location.origin + '/',
+    );
+   })
  
   test("handleLogin funciona correctamente con waiter", async () => {
     // Mock de las funciones necesarias
@@ -74,16 +75,9 @@ describe("Login", () => {
   });
 
   screen.debug();
-  beforeEach (()=>{
-    localStorage.clear();
-   })
+ 
 
   test("handleLogin funciona correctamente con admin", async () => {
-    window.history.pushState(
-      {},
-      route.path,
-      window.location.origin + route.path,
-    );
     localStorage.clear();
     // Mock de las funciones necesarias
     requestgetMock.mockResolvedValueOnce({
@@ -108,9 +102,6 @@ describe("Login", () => {
         </Routes>
       </BrowserRouter>
     );
-    await waitFor(() => {
-      console.log(document.location.pathname)
-    })
     
     // Ingresa las credenciales en los campos de usuario y contraseña
     const userInput = getByPlaceholderText("Usuario");
@@ -133,9 +124,85 @@ describe("Login", () => {
       expect(localStorage.getItem('userRole')).toBe("admin")
       expect(document.location.pathname).toBe("/adminview");
       expect(screen.getByText("admin")).toBeInTheDocument();
+      console.log(document.location.pathname)
       
     });
   });
-  
-});
->>>>>>> 0d4ab5878adbc0c7200726fc94e4ec481f7f2f11
+
+  test("handleLogin funciona correctamente con chef", async () => {
+    localStorage.clear();
+    // Mock de las funciones necesarias
+    requestgetMock.mockResolvedValueOnce({
+      accessToken: "asfsdgdjjsj",
+      user: { email: "gabriela@MediaList.com", 
+            role: "chef", 
+            id: 3 },
+    });
+
+    const { getByPlaceholderText, getByText } = render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route
+            path="/chefview"
+            element={
+              <div>
+                <p>chef</p>
+              </div>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    );
+    
+    // Ingresa las credenciales en los campos de usuario y contraseña
+    const userInput = getByPlaceholderText("Usuario");
+    const passwordInput = getByPlaceholderText("Contraseña");
+
+    fireEvent.change(userInput, { target: { value: "username" } });
+    fireEvent.change(passwordInput, { target: { value: "password" } });
+
+    // Simula el clic en el botón "INGRESAR"
+    const loginButton = getByText("INGRESAR");
+    fireEvent.click(loginButton);
+
+    // Espera a que se resuelva la promesa en handleLogin
+    await waitFor(() => {
+      expect(requestget).toHaveBeenCalledWith("username", "password"); // Pasar los valores de usuario y contraseña al mock
+ 
+    });
+   
+    await waitFor(() => {
+      expect(localStorage.getItem('userRole')).toBe("chef")
+      expect(document.location.pathname).toBe("/chefview");
+      expect(screen.getByText("chef")).toBeInTheDocument();
+      console.log(document.location.pathname)
+      
+    });
+  });
+
+  test("Arroja error", async () => {
+    localStorage.clear();
+    // Mock de las funciones necesarias
+    requestgetMock.mockRejectedValue(new Error("Login failed"));
+
+    const {getByText} = render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/chefview" element={<div><p>Chef</p></div>} />
+        </Routes>
+      </BrowserRouter>
+    );
+    
+    const loginButton = getByText("INGRESAR");
+    fireEvent.click(loginButton);
+    await waitFor(() => {
+      expect(document.location.pathname).toBe("/");
+      expect(requestgetMock('usuario', 'contraseña')).rejects.toThrow(new Error('Login failed'));
+    });
+   
+    });
+  });
+
+

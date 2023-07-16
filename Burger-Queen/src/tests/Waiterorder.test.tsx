@@ -1,11 +1,14 @@
+import "@testing-library/jest-dom";
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import Waiterorder from '../components/waiterorder/Waiterorder';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-jest.mock('../components/productCard/ProductCard', () => ({
-  __esModule: true,
-  default: jest.fn(),
-}));
+jest.mock('../components/productCard/ProductCard', () => {
+  const ProductCardMock = () => <div data-testid="product-card-mock">Mocked ProductCard</div>;
+  return ProductCardMock;
+});
+
+
 
 global.fetch = jest.fn().mockResolvedValue({
   json: jest.fn().mockResolvedValue([]), // Return an empty array as the product data
@@ -36,8 +39,9 @@ test('handles category click', async () => {
   })
 
 });
-/* 
-test('handles selecting a product', async () => {
+
+test('renders product cards in ProductCardMock component', async() => {
+
   render(
     <Router>
       <Waiterorder />
@@ -45,13 +49,14 @@ test('handles selecting a product', async () => {
   );
 
   await waitFor(() => {
-    // Select a product by clicking on it
-  const productCard = screen.getByTestId('product_test_1');
-  fireEvent.click(productCard);
-
-  // Assert that the selected product is added to the selectedProducts state
-  const selectedProduct = screen.getByTestId('product_test_1');
-  expect(selectedProduct).toBeInTheDocument();
+     // Assert the presence of product cards using the updated data-testid attribute
+     const productCardMock = screen.getByTestId('product-card-mock');
+     expect(productCardMock).toBeInTheDocument();
+     fireEvent.click(productCardMock);
+     const selectedProducts = screen.getByTestId('selected-products');
+    expect(selectedProducts.textContent).toContain('Mocked ProductCard');
   })
-  
-}); */
+
+ 
+});
+
