@@ -6,6 +6,8 @@ import Chefview from "./components/chefview/Chefview";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Waiterdelivering from "./components/waiterorder/waiterDelivering/WaiterDelivering";
 import AdminView from "./components/adminview/AdminView"
+import Modalremove from './components/modalremove/Modalremove';
+import Header from './components/header/Header';
 
 const App: React.FC = () => {
   return (
@@ -17,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/chefview" element={<Chefview />} />
         <Route path="/waiterdelivering" element={<Waiterdelivering />} />
         <Route path="/adminview" element={<AdminView />} />
+        <Route path="/modalremove" element={<Modalremove />} />
       </Routes>
     </BrowserRouter>
   );
