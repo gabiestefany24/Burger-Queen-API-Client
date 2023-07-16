@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for utils/Logout.tsx</title>
+    <title>Code coverage report for utils/totaltime.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">utils</a> Logout.tsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">utils</a> totaltime.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">15.38% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>2/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">15.38% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>2/13</span>
             </div>
         
             
@@ -73,34 +73,58 @@
 <a name='L8'></a><a href='#L8'>8</a>
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
-<a name='L11'></a><a href='#L11'>11</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { NavigateFunction } from 'react-router-dom';
-const handleLogout = <span class="fstat-no" title="function not covered" >(n</span>avigate: NavigateFunction) =&gt; {
-<span class="cstat-no" title="statement not covered" >    localStorage.removeItem('token');</span>
-<span class="cstat-no" title="statement not covered" >    localStorage.removeItem('userRole');</span>
-<span class="cstat-no" title="statement not covered" >    console.log('Se Jue')</span>
-<span class="cstat-no" title="statement not covered" >    navigate('/');</span>
-   
-    
-    // Opcionalmente, puedes realizar otras tareas de limpieza o redirigir a una página específica después del cierre de sesión.
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const calculateTotalPreparationTime = <span class="fstat-no" title="function not covered" >(d</span>ataEntry: string, dataDelivering: string) =&gt; {
+    const entryTime = <span class="cstat-no" title="statement not covered" >new Date(dataEntry).getTime();</span>
+    const deliveringTime = <span class="cstat-no" title="statement not covered" >new Date(dataDelivering).getTime();</span>
+    const totalTime = <span class="cstat-no" title="statement not covered" >deliveringTime - entryTime;</span>
+&nbsp;
+    const hours = <span class="cstat-no" title="statement not covered" >Math.floor(totalTime / (1000 * 60 * 60));</span>
+    const minutes = <span class="cstat-no" title="statement not covered" >Math.floor((totalTime % (1000 * 60 * 60)) / (1000 * 60));</span>
+    const seconds = <span class="cstat-no" title="statement not covered" >Math.floor((totalTime % (1000 * 60)) / 1000);</span>
+&nbsp;
+    let totalTimeStr = <span class="cstat-no" title="statement not covered" >"";</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (hours &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      totalTimeStr += `${hours}h `;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    totalTimeStr += `${minutes}m ${seconds}s`;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return totalTimeStr;</span>
   };
-export default  handleLogout; </pre></td></tr></table></pre>
+&nbsp;
+  export default calculateTotalPreparationTime;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-07-14T17:24:44.467Z
+                at 2023-07-14T14:40:44.987Z
             </div>
         <script src="../prettify.js"></script>
         <script>

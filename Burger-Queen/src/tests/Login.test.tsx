@@ -63,8 +63,7 @@ describe("Login", () => {
     // Espera a que se resuelva la promesa en handleLogin
     await waitFor(() => {
       expect(requestget).toHaveBeenCalledWith("username", "password"); // Pasar los valores de usuario y contraseña al mock
-      // expect(navigate).toHaveBeenCalledTimes(1);
-      // expect(navigate).toHaveBeenCalledWith('/waiterorder');
+   
     });
     await waitFor(() => {
       expect(localStorage.getItem('userRole')).toBe("waiter")
@@ -181,7 +180,7 @@ describe("Login", () => {
     });
   });
 
-  test("Arroja error", async () => {
+  test("Error", async () => {
     localStorage.clear();
     // Mock de las funciones necesarias
     requestgetMock.mockRejectedValue(new Error("Login failed"));
@@ -194,14 +193,15 @@ describe("Login", () => {
         </Routes>
       </BrowserRouter>
     );
-    
+  
+    // Simula el clic en el botón "INGRESAR"
     const loginButton = getByText("INGRESAR");
     fireEvent.click(loginButton);
     await waitFor(() => {
       expect(document.location.pathname).toBe("/");
       expect(requestgetMock('usuario', 'contraseña')).rejects.toThrow(new Error('Login failed'));
     });
-   
+    
     });
   });
 
