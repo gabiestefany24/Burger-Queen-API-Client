@@ -18,7 +18,6 @@ export interface ProductCardProps {
 }
   
 const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct, selectedProducts, selectedCategory }) => {
-    
   const [products, setProducts] = useState<Product[]>([]);
   const filteredProducts = selectedCategory ? products.filter(product => product.type === selectedCategory) : products;
 

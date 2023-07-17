@@ -29,6 +29,17 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
     return totalPrice.toFixed(2);
   };
 
+  const handleCreateOrder = () => {
+    if (client.trim() === '') {
+      console.log('introduzca nombre de cliente')
+      return;
+    }
+
+    createOrder(client, selectedProducts, quantities).then(() => {
+      clearOrder(setClient);
+    });
+  };
+
   useEffect(() => {
     const initialQuantities: { [key: number]: number } = {};
     selectedProducts.forEach((item) => {
@@ -111,9 +122,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
        </div>
        <div className={styles.containerBtn}>
                 <button className={styles.btnRemove} onClick={() => {clearOrder(setClient)}}><img className={styles.cancelorange} src={cancelwhite} alt="eliminar"></img>Borrar Orden</button>
-                <button className={styles.btnSend} onClick={() => {createOrder(client, selectedProducts, quantities).then(()=> {
-                 clearOrder(setClient) 
-                })}}><img className={styles.cancelorange} src={checkwhite} alt="enviar"></img>Enviar</button>
+                <button className={styles.btnSend} onClick={handleCreateOrder}><img className={styles.cancelorange} src={checkwhite} alt="enviar"></img>Enviar</button>
         </div>
     </>
   );
