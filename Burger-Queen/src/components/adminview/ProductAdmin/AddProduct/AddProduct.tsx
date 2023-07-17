@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
 import styles from './AddProduct.module.css';
 import addProductIcon from '../../../../assets/addNewProduct.png';
-import { addProduct } from '../../../../request/request';
+/* import { addProduct } from '../../../../request/request'; */
+import { NewProduct } from '../../../../utils/interface';
 
-const AddProduct: React.FC = () => {
+interface AddProductProps {
+    onAddProduct: (newProduct: NewProduct) => void;
+}
+
+
+  const AddProduct: React.FC<AddProductProps> = ({ onAddProduct }) => {
 
     const [productName, setProductName] = useState('');
     const [productPrice, setProductPrice] = useState('');
-    const [productType, setProductType] = useState('');
+    const [productType, setProductType] = useState('Desayuno');
     const [productImage, setProductImage] = useState('');
-
+ 
     const handleAddProduct = () => {
-        addProduct(productName, productPrice, productImage, productType);
+        const newProduct = {
+            name: productName,
+            price:productPrice,
+            type: productType,
+            image: productImage,
+        };
+        
+        /* addProduct(productName, productPrice, productImage, productType); */
+        onAddProduct(newProduct);
         // Reset input values
         setProductName('');
         setProductPrice('');
@@ -63,7 +77,7 @@ const AddProduct: React.FC = () => {
                     value={productImage}
                     onChange={(e) => setProductImage(e.target.value)}
                 />
-            </label>
+            </label>  
             <button className={styles.formBtn} type="button" onClick={handleAddProduct}>
                 <img src={addProductIcon} alt="Add Product" />
                 Agregar

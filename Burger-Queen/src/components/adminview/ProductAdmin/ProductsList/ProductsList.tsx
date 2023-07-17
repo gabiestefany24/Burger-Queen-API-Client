@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './ProductsList.module.css';
-import { getProductData } from '../../../../request/request';
-import { Product } from '../../../productCard/ProductCard';
+// import { getProductData } from '../../../../request/request';
+// import { Product } from '../../../productCard/ProductCard';
 import editIcon from '../../../../assets/editIcon.png';
 import deleteIcon from '../../../../assets/deleteIcon.png';
+import { Product } from '../../../productCard/ProductCard';
 
+interface ProductListProps {
+  products: Product[];
+  showModal: (state: boolean, id: number) => void
+}
+const ProductList: React.FC<ProductListProps>= ({products, showModal}) => {
+    // const [products, setProducts] = useState<Product[]>([]);
 
-const ProductList: React.FC = () => {
-    const [products, setProducts] = useState<Product[]>([]);
-
-    useEffect(() => {
+   /*  useEffect(() => {
         const fetchProducts = async () => {
             const token = localStorage.getItem('token');
             const data = await getProductData(token || '');
@@ -18,18 +22,7 @@ const ProductList: React.FC = () => {
 
         fetchProducts();
     }, []);
-
-    useEffect(() => {
-        // Watch for changes in the products array
-        const updateProducts = async () => {
-          const token = localStorage.getItem('token');
-          const data = await getProductData(token || '');
-          setProducts(data);
-        };
-    
-        updateProducts();
-      }, [products]);
-
+ */
     return (
         <>
           <div className={styles.tableContainer}>
@@ -60,7 +53,7 @@ const ProductList: React.FC = () => {
                       <img className={styles.editIcon} src={editIcon} />
                     </td>
                     <td>
-                      <img className={styles.deleteIcon} src={deleteIcon} />
+                      <img className={styles.deleteIcon} src={deleteIcon} onClick={ ()=> showModal(true, product.id)} />
                     </td>
                   </tr>
                 ))}

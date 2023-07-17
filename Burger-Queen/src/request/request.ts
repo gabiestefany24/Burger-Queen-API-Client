@@ -1,4 +1,5 @@
 import { Product } from "../components/productCard/ProductCard";
+import { NewProduct } from "../utils/interface";
 
 // interface Data {
 //   accessToken: string,
@@ -95,6 +96,24 @@ const getProductData = async (token: string): Promise<Product[]> => {
   }
 };
 
+const getUserData = async (token: string): Promise<User[]> => {
+  try {
+    const response = await fetch('http://localhost:8080/users', {
+     headers: {
+     Authorization: `Bearer ${token}`,
+  },
+   });
+  
+  const data = await response.json();
+  return data;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    return [];
+  }
+};
+
+
+
 function getOrders() {
   return fetch("http://localhost:8080/orders", {
     method: "GET",
@@ -138,7 +157,7 @@ function updateDataDelivering(id: number) {
   })
 }
 
-function addProduct(name: string, price: string, image: string, type: string) {
+function addProduct(product: NewProduct) {
   fetch('http://localhost:8080/products', {
     method: 'POST',
     headers: {
@@ -147,13 +166,49 @@ function addProduct(name: string, price: string, image: string, type: string) {
     },
     body: JSON.stringify(
       {
-        "name": name,
-        "price": price,
-        "image": image,
-        "type": type
+        "name": product.name,
+        "price": product.price,
+        "image": product.image,
+        "type": product.type
       }
     )
   })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al traer los productos");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      return error;
+    });
+}
+
+function deleteProduct(id: string) {
+  return fetch(`http://localhost:8080/products/${id}`, {
+    method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al eliminar producto");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      return error;
+    });
 }
   
  
@@ -164,6 +219,8 @@ export {
   getOrders,
   updateDataDelivering,
   addProduct,
+  getUserData,
+  deleteProduct
 };
 
   
