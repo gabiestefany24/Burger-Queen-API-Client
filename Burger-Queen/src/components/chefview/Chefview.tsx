@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import styles from "./Chefview.module.css";
-import logo from "../../assets/smallLogo.png";
-import lupa from "../../assets/searchIcon.png";
-import outicon from "../../assets/outicon.png";
+// import logo from "../../assets/smallLogo.png";
+// import lupa from "../../assets/searchIcon.png";
+// import outicon from "../../assets/outicon.png";
 import OrderCard from "../orderCard/OrderCard";
-import handleLogout from "../../utils/Logout"
+// import handleLogout from '../../utils/Logout';
+import Header from '../header/Header';
 
-
-
-
-const Chefview: React.FC = ()  => {
-  const navigate = useNavigate();
+const Chefview: React.FC = () => {
+  // const navigate = useNavigate();
   const [status, setStatus] = useState("pending");
+  // const [chefview, setChefview] = useState<boolean>(false); 
 
   const handleNavClick = (newStatus: string) => {
     setStatus(newStatus);
@@ -20,18 +19,7 @@ const Chefview: React.FC = ()  => {
 
   return (
     <>
-      <header className={styles.containerheader}>
-        <img className={styles.logo} src={logo} alt="Logo"></img>
-        <form className={styles.inputContainer}>
-          <input
-            className={styles.inputSearch}
-            type="search"
-            placeholder="Buscar orden"
-          />
-          <img className={styles.lupa} alt="lupa" src={lupa} />
-        </form>
-        <img className={styles.outicon} src={outicon} alt="iconosalida" onClick={() => handleLogout(navigate)}></img>
-      </header>
+      <Header/>
       <nav className={styles.optionsNav}>
         <div className={styles.buttonsNav}>
           <button className={styles.btnNav} onClick={() => handleNavClick("pending")}>Órdenes</button>
