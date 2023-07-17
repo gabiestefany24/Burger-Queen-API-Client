@@ -1,0 +1,29 @@
+.tableContainer {
+    background-color: rgba(9, 170, 41, 0.06);
+   /*  margin-top: 6rem; */
+    height: 34rem;
+    width: auto;
+    border-radius: 2rem;
+    overflow-y: scroll;
+}
+
+caption {
+    color: #404040;
+    font-size: 1.875rem;
+    padding: 2rem;
+}
+
+.imgProduct {
+    width: 3rem;
+}
+
+table{
+    border-collapse: collapse;
+}
+th,
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #FB892B;
+    font-family: Inter;
+}
+

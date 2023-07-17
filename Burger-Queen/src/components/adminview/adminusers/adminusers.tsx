@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./adminusers.module.css";
-import Waiterheader from "../../waiterorder/waiterheader/Waiterheader";
+import Header from "../../header/Header";
 
 const Adminusers: React.FC = () => {
   return (
     <>
-      <Waiterheader />
+      <Header />
       <main className={styles.backgroundadminusers}>
         <section className={styles.addusercontainer}>
           <form>
