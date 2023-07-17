@@ -55,7 +55,6 @@ const token = localStorage.getItem('token');
   
 function sendOrder(order: object): Promise<string> {
   
-  
   return fetch('http://localhost:8080/orders', {
     method: 'POST',
     headers: {
@@ -138,6 +137,24 @@ function updateDataDelivering(id: number) {
     )
   })
 }
+
+function addProduct(name: string, price: string, image: string, type: string) {
+  fetch('http://localhost:8080/products', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(
+      {
+        "name": name,
+        "price": price,
+        "image": image,
+        "type": type
+      }
+    )
+  })
+}
   
  
 export {
@@ -146,6 +163,7 @@ export {
   getProductData,
   getOrders,
   updateDataDelivering,
+  addProduct,
 };
 
   
