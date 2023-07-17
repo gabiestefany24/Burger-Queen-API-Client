@@ -4,17 +4,18 @@ import add from '../../assets/añadir.png';
 import reduce from '../../assets/disminuir.png';
 import cancelorange from '../../assets/cancelorange.png';
 import styles from './ordersummary.module.css';
-import { createOrder } from '../../utils/order';
 import cancelwhite from '../../assets/cancelwhite.png'
 import checkwhite from '../../assets/checkwhite.png'
-
 export interface OrdersummaryProps {
   selectedProducts: Product[];
   onRemoveItem: (itemId: number) => void;
   clearOrder: (setClient: React.Dispatch<React.SetStateAction<string>>) => void;
+  createOrder: (client:string, selectedProducts: Product[], quantities: {
+    [key: number]: number;
+}) => Promise<string>;
 }
 
-const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveItem, clearOrder }) => {
+const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveItem, clearOrder,createOrder }) => {
   const [quantities, setQuantities] = useState<{ [key: number]: number }>({}); 
   const [client, setClient] = useState<string>('');
 
@@ -58,6 +59,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
     return (item.price * quantity).toFixed(2);
   };
 
+ 
   return (
     <>
       <div className = {styles.containerClient}>
@@ -91,7 +93,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
           <img
             className={styles.cancelorange}
             src={cancelorange}
-            alt="eliminar"
+            alt="eliminarProducto"
             onClick={() => {
               onRemoveItem(item.id); // Llamar a la función onRemoveItem con el ID del producto
               setQuantities((prevQuantities) => {
@@ -110,7 +112,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
        <div className={styles.containerBtn}>
                 <button className={styles.btnRemove} onClick={() => {clearOrder(setClient)}}><img className={styles.cancelorange} src={cancelwhite} alt="eliminar"></img>Borrar Orden</button>
                 <button className={styles.btnSend} onClick={() => {createOrder(client, selectedProducts, quantities).then(()=> {
-                  clearOrder(setClient)
+                 clearOrder(setClient) 
                 })}}><img className={styles.cancelorange} src={checkwhite} alt="enviar"></img>Enviar</button>
         </div>
     </>
