@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './ProductAdmin.module.css';
-import Waiterheader from '../../waiterorder/waiterheader/Waiterheader';
 import AddProduct from './AddProduct/AddProduct';
 import ProductList from './ProductsList/ProductsList';
+import Header from '../../header/Header';
 
 const ProductAdmin: React.FC = () => {
     
 
     return (
         <>
-            <Waiterheader />
+            <Header />
             <div className={styles.container}>
                 <AddProduct />
                 <ProductList />

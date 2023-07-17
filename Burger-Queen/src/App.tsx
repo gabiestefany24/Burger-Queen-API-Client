@@ -9,6 +9,8 @@ import AdminView from "./components/adminview/AdminView"
 import ProductAdmin from "./components/adminview/ProductAdmin/ProductAdmin"
 import Modalremove from './components/modalremove/Modalremove';
 
+
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
