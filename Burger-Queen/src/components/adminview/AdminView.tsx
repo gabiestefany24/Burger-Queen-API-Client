@@ -19,7 +19,7 @@ const AdminView: React.FC = () => {
                     <p className={styles.adminviewtitle}>Seleccione para navegar</p>
                     <button className={styles.btnadmin} onClick={()=>navigate("/chefview")}><img className={styles.iconadmin} src={iconkitchen} ></img><p>Cocina</p></button>
                     <button className={styles.btnadmin} onClick={()=>navigate("/waiterorder")}><img className={styles.iconadmin} src={iconwaiter} alt="iconwaiter"></img><p>Meseros</p></button>
-                    <button className={styles.btnadmin}><img className={styles.iconadmin} src={iconadmin} alt="icon admin"></img><p>Administración</p></button>
+                    <button className={styles.btnadmin} onClick={()=>navigate("/adminusers")}><img className={styles.iconadmin} src={iconadmin} alt="icon admin"></img><p>Administración</p></button>
                 </div>
               
             </section>

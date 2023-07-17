@@ -6,6 +6,7 @@ import Chefview from "./components/chefview/Chefview";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Waiterdelivering from "./components/waiterorder/waiterDelivering/WaiterDelivering";
 import AdminView from "./components/adminview/AdminView"
+import Adminusers from "./components/adminview/adminusers/adminusers";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <Route path="/chefview" element={<Chefview />} />
         <Route path="/waiterdelivering" element={<Waiterdelivering />} />
         <Route path="/adminview" element={<AdminView />} />
+        <Route path = "/adminusers" element ={<Adminusers/>} />
       </Routes>
     </BrowserRouter>
   );
