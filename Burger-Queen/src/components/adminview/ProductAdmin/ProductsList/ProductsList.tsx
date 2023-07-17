@@ -19,16 +19,6 @@ const ProductList: React.FC = () => {
         fetchProducts();
     }, []);
 
-    useEffect(() => {
-        // Watch for changes in the products array
-        const updateProducts = async () => {
-          const token = localStorage.getItem('token');
-          const data = await getProductData(token || '');
-          setProducts(data);
-        };
-    
-        updateProducts();
-      }, [products]);
 
     return (
         <>
