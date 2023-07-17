@@ -3,7 +3,9 @@ import React, {useState} from 'react';
 import ProductCard,  {Product} from '../productCard/ProductCard';
 import Ordersummary from '../ordersummary/ordersummary';
 import styles from './Waiterorder.module.css'
-import Waiterheader from './waiterheader/Waiterheader';
+import Header from '../header/Header';
+import Waitermodal from './waitermodal/Waitermodal';
+import { createOrder } from '../../utils/order';
 
 
 
@@ -11,9 +13,8 @@ const Waiterorder: React.FC = () => {
 
     const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
 
-   
-
     const [selectedCategory, setSelectedCategory] = useState<string>('Desayuno');
+    const [isOrderCreated, setIsOrderCreated] = useState<boolean>(false); 
 
     const handleRemoveItem = (itemId: number) => {
         setSelectedProducts((prevSelectedProducts) =>
@@ -29,11 +30,29 @@ const Waiterorder: React.FC = () => {
     const handleCategoryClick = (category: string) => {
         setSelectedCategory(category);
     };
+    const handleRemoveModal = (state:boolean) => {
+        setIsOrderCreated(state);
+    }
 
+    const handleCreateOrder = (client: string, selectedProducts: Product[], quantities: { [key: number]: number }): Promise<string> => {
+        return new Promise((resolve, reject) => {
+          createOrder(client, selectedProducts, quantities)
+            .then((response) => {
+              setIsOrderCreated(true);
+              resolve(response);
+            })
+            .catch((error) => {
+              // Manejar el error en caso de que la orden no se pueda crear
+              console.log(error);
+              reject(error);
+            });
+        });
+      };
+      
 
     return (
         <>
-            <Waiterheader />
+            <Header/>
             <main className={styles.backgroundwaiterorder}>
                 <aside className={styles.productsAside}>
                 <section className= {styles.nav}>
@@ -59,9 +78,11 @@ const Waiterorder: React.FC = () => {
                 </aside>
                 
                 <aside className={styles.summary}>
-                        {Ordersummary && <Ordersummary selectedProducts={selectedProducts} onRemoveItem={handleRemoveItem} clearOrder={clearOrder} />}
-                    </aside>
+                        {Ordersummary && <Ordersummary selectedProducts={selectedProducts} onRemoveItem={handleRemoveItem} clearOrder={clearOrder} createOrder={handleCreateOrder} />}
+                </aside>
+                
             </main>
+            {isOrderCreated && <Waitermodal removeModal={handleRemoveModal} />}
 
         </>
     )

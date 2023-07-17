@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Waiterdelivering from "./components/waiterorder/waiterdelivering/WaiterDelivering";
 import AdminView from "./components/adminview/AdminView"
 import ProductAdmin from "./components/adminview/ProductAdmin/ProductAdmin"
+import Modalremove from './components/modalremove/Modalremove';
+
+
 
 const App: React.FC = () => {
   return (
@@ -19,6 +22,7 @@ const App: React.FC = () => {
         <Route path="/waiterdelivering" element={<Waiterdelivering />} />
         <Route path="/adminview" element={<AdminView />} />
         <Route path="/productadmin" element={<ProductAdmin />} />
+        <Route path="/modalremove" element={<Modalremove />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import OrderCard from "../../orderCard/OrderCard";
-import Waiterheader from "../waiterheader/Waiterheader"
+import Header from "../../header/Header"
 import styles from "../waiterDelivering/WaiterDelivering.module.css"
 
 
@@ -7,7 +7,7 @@ const Waiterdelivering: React.FC = () => {
     
     return (
         <>
-        <Waiterheader />
+         <Header/>
         <div className={styles.containerdelivered}>
             <p className={styles.waiterdeliveringtitle}>Órdenes listas para entregar</p>
         </div>
