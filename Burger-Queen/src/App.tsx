@@ -4,10 +4,12 @@ import Login from "./components/login/Login";
 import Waiterorder from "./components/waiterorder/Waiterorder";
 import Chefview from "./components/chefview/Chefview";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Waiterdelivering from "./components/waiterorder/waiterdelivering/WaiterDelivering";
+import Waiterdelivering from "./components/waiterorder/waiterDelivering/WaiterDelivering";
 import AdminView from "./components/adminview/AdminView"
-import ProductAdmin from "./components/adminview/ProductAdmin/ProductAdmin"
 import Modalremove from './components/modalremove/Modalremove';
+import AdminMain from "./components/adminview/adminmain/AdminMain";
+
+
 
 
 
@@ -21,8 +23,9 @@ const App: React.FC = () => {
         <Route path="/chefview" element={<Chefview />} />
         <Route path="/waiterdelivering" element={<Waiterdelivering />} />
         <Route path="/adminview" element={<AdminView />} />
-        <Route path="/productadmin" element={<ProductAdmin />} />
         <Route path="/modalremove" element={<Modalremove />} />
+        <Route path="/adminmain" element={<AdminMain />} />
+       
       </Routes>
     </BrowserRouter>
   );

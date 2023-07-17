@@ -27,7 +27,7 @@ const Chefview: React.FC = () => {
         </div>
       </nav>
       <section className={styles.containercheforders}>
-      <div data-testid="status">{status}</div>
+      <div data-testid="status"></div>
         <OrderCard status={status} />
       </section>
     </>

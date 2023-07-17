@@ -3,7 +3,9 @@
   padding: 0;
   font-family: 'Hammersmith One', sans-serif;
   }
+
 .backgroundLogin{
+  background-image: url('../../assets/fondo_login.png');
   width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
