@@ -7,6 +7,7 @@
     height: 100%;
     display: grid;
     place-items: center;
+    
 }
 .modalContent{
     display: flex;
@@ -19,10 +20,11 @@
     position: relative;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 }
 .btnModal{
     display:flex;
-    margin-top:5vh;
+    /* margin-top:3vh; */
     text-decoration: none;
     border: none;
     border-radius: 10px;
@@ -39,4 +41,8 @@
 }
 .pModal{
     font-size: 20px;
+}
+
+.checkIcon {
+    width: 3.5vw;
 }
