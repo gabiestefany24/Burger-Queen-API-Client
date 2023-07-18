@@ -10,8 +10,8 @@
 .containerIcons{
     display: flex;
     flex-direction: row;
-    gap:2vw;
-    margin-left: 2rem;
+    gap:1vw;
+    margin-right: 4rem;
 }
 .containerCreateOrderIcon, .containerOrdersIcon{
     display: flex;

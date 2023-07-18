@@ -3,7 +3,7 @@ import styles from "./AdminMain.module.css";
 import Header from "../../header/Header";
 import Navadmin from '../navadmin/Navadmin'
 import ProductAdmin from "../ProductAdmin/ProductAdmin";
-import AdminUsers from "../adminusers/AdminUsers";
+import AdminUsers from "../adminusers/adminusers";
 
 const AdminMain: React.FC = () => {
     const [selectedOption, setSelectedOption] = useState('adminUsers');

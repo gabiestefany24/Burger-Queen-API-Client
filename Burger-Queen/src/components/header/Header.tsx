@@ -8,6 +8,7 @@ import handleLogout from '../../utils/Logout';
 import iconcreate from '../../assets/iconcreate.png';
 import icondelivering from '../../assets/icondelivering.png';
 import iconadmingreen from '../../assets/iconadmingreen.png';
+import chef from '../../assets/chef.png'
 
 
 const Header:React.FC = () => {
@@ -25,14 +26,24 @@ const Header:React.FC = () => {
             <img className={styles.lupa} alt="lupa" src={lupa} />
           </form>
 
-          {window.location.pathname !='/chefview' && 
+          {localStorage.getItem('userRole') !='chef' && 
           <div className={styles.containerIcons}>
-            {localStorage.getItem('userRole') ==='admin' && <Link className={styles.links} to="">
+            {localStorage.getItem('userRole') ==='admin' && 
+            <>
+              <Link className={styles.links} to="/adminmain">
               <div className={styles.containerCreateOrderIcon}>
                 <img className={styles.createOrderIcon} src={iconadmingreen}></img>
                 <span>Administrar</span>
               </div>
-            </Link> }
+            </Link> 
+             <Link className={styles.links} to="/chefview">
+             <div className={styles.containerOrdersIcon}>
+               <img className={styles.ordersIcon} src={chef}></img>
+               <span>Cocina</span>
+             </div>
+           </Link> 
+           </>
+           }
             <Link className={styles.links} to="/waiterorder">
               <div className={styles.containerCreateOrderIcon}>
                 <img className={styles.createOrderIcon} src={iconcreate}></img>

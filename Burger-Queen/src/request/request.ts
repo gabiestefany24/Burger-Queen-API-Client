@@ -210,6 +210,37 @@ function deleteProduct(id: string) {
       return error;
     });
 }
+
+function editProduct(id: string, product: NewProduct) {
+  return fetch(`http://localhost:8080/products/${id}`, {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(
+      {
+        "name": product.name,
+        "price": product.price,
+        "image": product.image,
+        "type": product.type
+      }
+    )
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al editar el producto");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      return error;
+    });
+}
   
  
 export {
@@ -220,7 +251,8 @@ export {
   updateDataDelivering,
   addProduct,
   getUserData,
-  deleteProduct
+  deleteProduct, 
+  editProduct
 };
 
   
