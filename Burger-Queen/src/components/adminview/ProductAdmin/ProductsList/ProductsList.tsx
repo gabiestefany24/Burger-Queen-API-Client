@@ -9,8 +9,9 @@ import { Product } from '../../../productCard/ProductCard';
 interface ProductListProps {
   products: Product[];
   showModal: (state: boolean, id: number) => void
+  editProduct: (product:object) => void;
 }
-const ProductList: React.FC<ProductListProps>= ({products, showModal}) => {
+const ProductList: React.FC<ProductListProps>= ({products, showModal, editProduct}) => {
     // const [products, setProducts] = useState<Product[]>([]);
 
    /*  useEffect(() => {
@@ -21,7 +22,7 @@ const ProductList: React.FC<ProductListProps>= ({products, showModal}) => {
         };
 
         fetchProducts();
-    }, []);
+    }, [products]);
  */
     return (
         <>
@@ -50,7 +51,7 @@ const ProductList: React.FC<ProductListProps>= ({products, showModal}) => {
                     </td>
                     <td>{product.type}</td>
                     <td>
-                      <img className={styles.editIcon} src={editIcon} />
+                      <img className={styles.editIcon} src={editIcon} onClick={ ()=> editProduct(product)}/>
                     </td>
                     <td>
                       <img className={styles.deleteIcon} src={deleteIcon} onClick={ ()=> showModal(true, product.id)} />
