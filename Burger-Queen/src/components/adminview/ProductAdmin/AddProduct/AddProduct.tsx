@@ -23,7 +23,7 @@ interface AddProductProps {
     useEffect(() => {
         const handleEditProduct = () => {
             setProductName(editProductInfo.name);
-            setProductPrice(String(editProductInfo.price));
+            setProductPrice(editProductInfo.price !== undefined ? String(editProductInfo.price) : '');
             setProductImage(editProductInfo.image);
             setProductType(editProductInfo.type);
             
