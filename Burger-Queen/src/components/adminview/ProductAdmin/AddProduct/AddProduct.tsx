@@ -4,15 +4,17 @@ import addProductIcon from '../../../../assets/addNewProduct.png';
 /* import { addProduct } from '../../../../request/request'; */
 import { NewProduct } from '../../../../utils/interface';
 import { Product } from '../../../productCard/ProductCard';
+import returnIcon from '../../../../assets/returnIcon.png';
 
 interface AddProductProps {
     onAddProduct: (newProduct: NewProduct) => void;
     editProductInfo: Product;
     editProductState:boolean;
     onEditProduct: (id:string, newProduct: NewProduct) => void;
+    onReturn: () => void;
 }
 
-  const AddProduct: React.FC<AddProductProps> = ({ onAddProduct, editProductInfo,  editProductState, onEditProduct }) => {
+  const AddProduct: React.FC<AddProductProps> = ({ onAddProduct, editProductInfo,  editProductState, onEditProduct, onReturn }) => {
 
     const [productName, setProductName] = useState('');
     const [productPrice, setProductPrice] = useState('');
@@ -23,7 +25,7 @@ interface AddProductProps {
     useEffect(() => {
         const handleEditProduct = () => {
             setProductName(editProductInfo.name);
-            setProductPrice(String(editProductInfo.price));
+            setProductPrice(editProductInfo.price !== undefined ? String(editProductInfo.price) : '');
             setProductImage(editProductInfo.image);
             setProductType(editProductInfo.type);
             
@@ -32,7 +34,7 @@ interface AddProductProps {
     }, [editProductInfo]);
 
   
- 
+    console.log(editProductState)
     const handleClick = () => {
         const newProduct = {
             name: productName,
@@ -54,7 +56,7 @@ interface AddProductProps {
 
     return (
         <form className={styles.formContainer}>
-            {editProductState? <p className={styles.formTitle}> Editar Producto </p> : <p className={styles.formTitle}> Agregar Producto </p>}
+            {editProductState? <><img className={styles.returnIcon} src={returnIcon}  onClick={() => onReturn() } /><p className={styles.formTitle}> Editar Producto </p></> : <p className={styles.formTitle}> Agregar Producto </p>}
             <label className={styles.labelInput}>
                 Nombre del producto
                 <input

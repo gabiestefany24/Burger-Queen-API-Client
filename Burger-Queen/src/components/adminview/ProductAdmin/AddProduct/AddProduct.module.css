@@ -38,6 +38,7 @@
     height: 2.3rem;
     border-radius: 1rem;
     border: 1px solid #FB892B;
+    padding-left: 0.8rem;
 }
 
 
@@ -69,4 +70,9 @@
     align-items: center;
     gap: 0.5rem;
 
+}
+
+.returnIcon{
+    width: 3rem;
+    margin-bottom: 1rem;
 }
