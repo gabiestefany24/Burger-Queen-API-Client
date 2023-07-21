@@ -1,4 +1,5 @@
 const calculateTotalPreparationTime = (dataEntry: string, dataDelivering: string) => {
+  console.log(dataEntry, dataDelivering)
     const entryTime = new Date(dataEntry).getTime();
     const deliveringTime = new Date(dataDelivering).getTime();
     const totalTime = deliveringTime - entryTime;

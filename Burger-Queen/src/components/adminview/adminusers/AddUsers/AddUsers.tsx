@@ -3,16 +3,18 @@ import styles from "./AddUsers.module.css";
 import addUserIcon from '../../../../assets/addNewProduct.png';
 import {NewUser} from '../../../../utils/interface';
 import {User} from '../../../../utils/interface'
+import returnIcon from '../../../../assets/returnIcon.png';
 
 interface AddUserProps {
   onAddUser :(NewUser:NewUser)=>void;
   editUserInfo:User;
   editUserState:boolean;
   onEditUser:(id:string, newUser:NewUser)=>void;
+  onReturn: () => void;
 
 }
 
-const AddUsers: React.FC<AddUserProps> = ({onAddUser, editUserInfo, editUserState, onEditUser}) => {
+const AddUsers: React.FC<AddUserProps> = ({onAddUser, editUserInfo, editUserState, onEditUser, onReturn}) => {
   
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -52,7 +54,7 @@ const AddUsers: React.FC<AddUserProps> = ({onAddUser, editUserInfo, editUserStat
       <main className={styles.backgroundadminusers}>
         <section className={styles.addUserContainer}>
           <form className={styles.formContainer}>
-          {editUserState? <p className={styles.formTitle}> Editar Usuario </p> : <p className={styles.formTitle}> Agregar Usuario </p>}
+          {editUserState? <><img className={styles.returnIcon} src={returnIcon}  onClick={() => onReturn() } /><p className={styles.formTitle}> Editar Usuario </p> </>: <p className={styles.formTitle}> Agregar Usuario </p>}
             <label className={styles.labelInput}>Correo
             <input
               className={styles.productInput}

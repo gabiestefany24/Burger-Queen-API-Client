@@ -35,21 +35,25 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
   const notReadyOrders = orders.filter((order) => order.status === "pending");
   const readyOrders = orders.filter((order) => order.status === "delivering");
 
-  useEffect(() => {
-    const fetchOrders = async () => {
-      const data = await getOrders();
-      setOrders(data);
-    };
+  
+  const fetchOrders = async () => {
+    const data = await getOrders();
+    setOrders(data);
 
-    fetchOrders();
+  };
+  
+  useEffect(() => {
+       fetchOrders();
   }, []);
 
-  const handleOrderReady = async (orderId: number, statusText: string) => {
+  const handleOrderReady = async (orderId: number) => {
     await updateDataDelivering(orderId);
-    const updatedOrders = orders.map((order) =>
-      order.id === orderId ? { ...order, status: statusText } : order
-    );
-    setOrders(updatedOrders);
+    fetchOrders();
+
+    // const updatedOrders = orders.map((order) =>
+    //   order.id === orderId ? { ...order, status: statusText } : order
+    // );
+    // setOrders(updatedOrders);
   };
 
   return (
@@ -63,7 +67,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
             <OrderDefault order={order} />
             <button
               className={styles.btnready}
-              onClick={() => handleOrderReady(order.id, "delivering")}
+              onClick={() => handleOrderReady(order.id)}
             >
               <img
                 className={styles.iconready}
@@ -96,7 +100,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
             <OrderDefault order={order} />
             <button
               className={styles.btnready}
-              onClick={() => handleOrderReady(order.id, "delivered")}
+              onClick={() => handleOrderReady(order.id)}
             >
               <img
                 className={styles.icondelivered}

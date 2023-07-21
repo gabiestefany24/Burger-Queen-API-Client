@@ -58,13 +58,18 @@ const AdminUsers: React.FC = () => {
 
     }
 
+    const handleReturn = () => {
+        setEditUsersState(false); 
+        setEditUserInfo({});// Set the editProductState to false when returning from editing
+      };
+
     
 
     return (
         <>
     
             <div className={styles.container}>
-                <AddUsers onAddUser ={handleAddUser} editUserInfo={editUserInfo} editUserState={editUserState} onEditUser = {handleEditUser} />
+                <AddUsers onAddUser ={handleAddUser} editUserInfo={editUserInfo} editUserState={editUserState} onEditUser = {handleEditUser} onReturn={handleReturn}/>
                 <UsersList users={users} showModal = {handleShowModal} editUser ={handleEditUserInfo}/>
             </div>
 
