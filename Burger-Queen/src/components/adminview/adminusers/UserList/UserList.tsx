@@ -1,24 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './UserList.module.css';
-import { getUserData } from '../../../../request/request';
-import { User } from '../../../../utils/interface'
 import editIcon from '../../../../assets/editIcon.png';
 import deleteIcon from '../../../../assets/deleteIcon.png';
+import { User } from '../../../../utils/interface'
 
+interface UserListProps{
+  users: User[];
+  showModal: (state: boolean, id: number) => void;
+  editUser: (User:object) => void;
+}
 
-const UsersList: React.FC = () => {
-    const [users, setUsers] = useState<User[]>([]);
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const token = localStorage.getItem('token');
-            const data = await getUserData(token || '');
-            setUsers(data);
-        };
-
-        fetchProducts();
-    }, []);
-
+const UsersList: React.FC<UserListProps> = ({users, showModal, editUser}) => {
+   
 
     return (
         <>
@@ -41,10 +34,10 @@ const UsersList: React.FC = () => {
                     <td>{user.email}</td>
                     <td>{user.role}</td>
                     <td>
-                      <img className={styles.editIcon} src={editIcon} />
+                      <img className={styles.editIcon} src={editIcon} onClick = {()=> editUser(user)} />
                     </td>
                     <td>
-                      <img className={styles.deleteIcon} src={deleteIcon} />
+                      <img className={styles.deleteIcon} src={deleteIcon} onClick={ ()=> showModal(true, user.id)} />
                     </td>
                   </tr>
                 ))}

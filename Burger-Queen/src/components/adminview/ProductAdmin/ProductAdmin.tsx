@@ -76,7 +76,7 @@ const ProductAdmin: React.FC = () => {
                 <ProductList products={products} showModal={handleShowModal} editProduct={handleEditProductInfo} />
             </div>
 
-             {showModal && <Modalremove state={handleCancelModal} deleteProduct= {handleDeleteProduct} isProduct={true} />}
+             {showModal && <Modalremove state={handleCancelModal} deleteItem= {handleDeleteProduct} isProduct={true} />}
 
         </>
 

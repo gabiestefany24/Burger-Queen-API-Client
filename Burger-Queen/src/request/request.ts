@@ -1,5 +1,6 @@
 import { Product } from "../components/productCard/ProductCard";
-import { NewProduct } from "../utils/interface";
+import { NewProduct, NewUser, User } from "../utils/interface";
+
 
 // interface Data {
 //   accessToken: string,
@@ -9,12 +10,6 @@ import { NewProduct } from "../utils/interface";
 //       id: number,
 //   }[];
 // }
-
-interface User {
-  email: string;
-  role: string;
-  id: number;
-}
 
 interface AuthResponse {
   accessToken: string;
@@ -241,7 +236,95 @@ function editProduct(id: string, product: NewProduct) {
       return error;
     });
 }
-  
+
+function deleteUser(id: string) {
+  return fetch(`http://localhost:8080/users/${id}`, {
+    method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al eliminar usuario");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      return error;
+    });
+}
+
+function addUser(user: NewUser) {
+  fetch('http://localhost:8080/users', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(
+      {
+       "email": user.email,
+       "password":user.password,
+       "role":user.role,
+      }
+    )
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al traer los usuarios");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      return error;
+    });
+}
+
+function editUser(id: string, user: NewUser) {
+  return fetch(`http://localhost:8080/users/${id}`, {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(
+      {
+        "email": user.email,
+        "password":user.password,
+        "role":user.role,
+       
+      }
+    )
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al editar el usuario");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      return error;
+    });
+}
+
+
+
+
+
  
 export {
   requestget,
@@ -252,7 +335,10 @@ export {
   addProduct,
   getUserData,
   deleteProduct, 
-  editProduct
+  editProduct, 
+  deleteUser,
+  addUser,
+  editUser
 };
 
   
