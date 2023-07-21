@@ -52,9 +52,11 @@ const ProductAdmin: React.FC = () => {
         await editProduct(id, newProduct);
         setEditProductState(false);
         fetchProducts();
-        
-
     }
+    const handleReturn = () => {
+        setEditProductState(false); 
+        setEditProductInfo({});// Set the editProductState to false when returning from editing
+      };
  /*    useEffect(() => {
         const fetchProducts = async () => {
             const token = localStorage.getItem('token');
@@ -70,7 +72,7 @@ const ProductAdmin: React.FC = () => {
         <>
     
             <div className={styles.container}>
-                <AddProduct onAddProduct={handleAddProduct} editProductInfo={editProductInfo} editProductState={editProductState} onEditProduct={handleEditProduct}/>
+                <AddProduct onAddProduct={handleAddProduct} editProductInfo={editProductInfo} editProductState={editProductState} onEditProduct={handleEditProduct} onReturn={handleReturn}/>
                 <ProductList products={products} showModal={handleShowModal} editProduct={handleEditProductInfo} />
             </div>
 

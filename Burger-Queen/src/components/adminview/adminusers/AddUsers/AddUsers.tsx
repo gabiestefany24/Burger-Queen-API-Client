@@ -93,7 +93,7 @@ const AddUsers: React.FC<AddUserProps> = ({onAddUser, editUserInfo, editUserStat
             </button>  }
            
           </form>
-          
+
         </section>
       </main>
     </>
