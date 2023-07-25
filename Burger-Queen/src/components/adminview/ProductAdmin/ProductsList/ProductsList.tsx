@@ -12,9 +12,9 @@ interface ProductListProps {
   editProduct: (product:object) => void;
 }
 const ProductList: React.FC<ProductListProps>= ({products, showModal, editProduct}) => {
-    // const [products, setProducts] = useState<Product[]>([]);
+  // const [products, setProducts] = useState<Product[]>([]);
 
-   /*  useEffect(() => {
+  /*  useEffect(() => {
         const fetchProducts = async () => {
             const token = localStorage.getItem('token');
             const data = await getProductData(token || '');
@@ -24,45 +24,45 @@ const ProductList: React.FC<ProductListProps>= ({products, showModal, editProduc
         fetchProducts();
     }, [products]);
  */
-    return (
-        <>
-          <div className={styles.tableContainer}>
-            <table className={styles.table}>
-              <caption>Administración de Productos</caption>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Precio</th>
-                  <th>Imagen</th>
-                  <th>Tipo</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product) => (
-                  <tr key={product.id}>
-                    <td>{product.id}</td>
-                    <td>{product.name}</td>
-                    <td>{product.price}</td>
-                    <td>
-                      <img className={styles.imgProduct} alt={product.name} src={product.image} />
-                    </td>
-                    <td>{product.type}</td>
-                    <td>
-                      <img className={styles.editIcon} src={editIcon} onClick={ ()=> editProduct(product)}/>
-                    </td>
-                    <td>
-                      <img className={styles.deleteIcon} src={deleteIcon} onClick={ ()=> showModal(true, product.id)} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </>
-      );
-    };
+  return (
+    <>
+      <div className={styles.tableContainer}>
+        <table className={styles.table}>
+          <caption>Administración de Productos</caption>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+              <th>Tipo</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <tr key={product.id}>
+                <td>{product.id}</td>
+                <td>{product.name}</td>
+                <td>{product.price}</td>
+                <td>
+                  <img className={styles.imgProduct} alt={product.name} src={product.image} />
+                </td>
+                <td>{product.type}</td>
+                <td>
+                  <img className={styles.editIcon} src={editIcon} onClick={ ()=> editProduct(product)}/>
+                </td>
+                <td>
+                  <img className={styles.deleteIcon} src={deleteIcon} onClick={ ()=> showModal(true, product.id)} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+};
     
-    export default ProductList;
+export default ProductList;

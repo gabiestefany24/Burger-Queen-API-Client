@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { /* Route, */ Navigate, RouteProps } from "react-router-dom";
+import React, { ReactNode } from 'react';
+import { /* Route, */ Navigate, RouteProps } from 'react-router-dom';
 
 type ProtectedRouteProps = {
     element: ReactNode;
@@ -7,7 +7,7 @@ type ProtectedRouteProps = {
 } & RouteProps;
 
 const ProtectedRoute: React.FC <ProtectedRouteProps> = ({ element, allowedRoles }) => {
-  const userRole = localStorage.getItem("userRole");
+  const userRole = localStorage.getItem('userRole');
 
   if (!userRole || !allowedRoles.includes(userRole)) {
     // Si no hay rol o el rol no está permitido, redirige al usuario a la página de inicio de sesión.

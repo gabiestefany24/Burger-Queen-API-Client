@@ -1,6 +1,5 @@
-import { Product } from "../components/productCard/ProductCard";
-import { NewProduct, NewUser, User } from "../utils/interface";
-
+import { Product } from '../components/productCard/ProductCard';
+import { NewProduct, NewUser, User } from '../utils/interface';
 
 // interface Data {
 //   accessToken: string,
@@ -17,35 +16,35 @@ interface AuthResponse {
 }
 
 function requestget(user: string, password: string): Promise<AuthResponse> {
-    const loginData = {
-      email: user,
-      password: password
-    };
+  const loginData = {
+    email: user,
+    password: password
+  };
   
-    return fetch('http://localhost:8080/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(loginData)
+  return fetch('http://localhost:8080/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(loginData)
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al iniciar sesión. Por favor, verifica tus credenciales.');
+      }
+      return response.json();
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error al iniciar sesión. Por favor, verifica tus credenciales.');
-        }
-        return response.json();
-      })
-      .then(data => {
+    .then(data => {
         
-        return data;
+      return data;
         
-        // Aquí puedes realizar acciones adicionales con el token
-      })
-      .catch(error => {
-        console.error('Error al iniciar sesión:', error);
-        throw error;
-      });
-  }
+      // Aquí puedes realizar acciones adicionales con el token
+    })
+    .catch(error => {
+      console.error('Error al iniciar sesión:', error);
+      throw error;
+    });
+}
 
 const token = localStorage.getItem('token');
   
@@ -55,20 +54,20 @@ function sendOrder(order: object): Promise<string> {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-       'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify(order)
-    })
+  })
     .then(response => {
-       if (!response.ok) {
+      if (!response.ok) {
         throw new Error('Error al publicar la orden');
       }
-       return response.json();
-     })
+      return response.json();
+    })
     .then(data => {
       
-      return (data)
-     })
+      return (data);
+    })
     .catch(error => {
       console.error('Error:', error);
       throw error;
@@ -78,13 +77,13 @@ function sendOrder(order: object): Promise<string> {
 const getProductData = async (token: string): Promise<Product[]> => {
   try {
     const response = await fetch('http://localhost:8080/products', {
-     headers: {
-     Authorization: `Bearer ${token}`,
-  },
-   });
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   
-  const data = await response.json();
-  return data;
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.error('Error fetching products:', error);
     return [];
@@ -94,32 +93,30 @@ const getProductData = async (token: string): Promise<Product[]> => {
 const getUserData = async (token: string): Promise<User[]> => {
   try {
     const response = await fetch('http://localhost:8080/users', {
-     headers: {
-     Authorization: `Bearer ${token}`,
-  },
-   });
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   
-  const data = await response.json();
-  return data;
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.error('Error fetching users:', error);
     return [];
   }
 };
 
-
-
 function getOrders() {
-  return fetch("http://localhost:8080/orders", {
-    method: "GET",
+  return fetch('http://localhost:8080/orders', {
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Error al traer las órdenes");
+        throw new Error('Error al traer las órdenes');
       }
       return response.json();
     })
@@ -127,7 +124,7 @@ function getOrders() {
       return data;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       throw error;
     });
 }
@@ -140,37 +137,37 @@ function updateDataDelivering(id: number) {
   fetch(`http://localhost:8080/orders/${id}`, {
     method: 'PATCH',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(
       {
-        "status": "delivering",
-        "dataDelivering": formattedDate, 
+        'status': 'delivering',
+        'dataDelivering': formattedDate, 
       }
     )
-  })
+  });
 }
 
 function addProduct(product: NewProduct) {
   fetch('http://localhost:8080/products', {
     method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(
       {
-        "name": product.name,
-        "price": product.price,
-        "image": product.image,
-        "type": product.type
+        'name': product.name,
+        'price': product.price,
+        'image': product.image,
+        'type': product.type
       }
     )
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Error al traer los productos");
+        throw new Error('Error al traer los productos');
       }
       return response.json();
     })
@@ -178,7 +175,7 @@ function addProduct(product: NewProduct) {
       return data;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       return error;
     });
 }
@@ -187,13 +184,13 @@ function deleteProduct(id: string) {
   return fetch(`http://localhost:8080/products/${id}`, {
     method: 'DELETE',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Error al eliminar producto");
+        throw new Error('Error al eliminar producto');
       }
       return response.json();
     })
@@ -201,7 +198,7 @@ function deleteProduct(id: string) {
       return data;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       return error;
     });
 }
@@ -210,21 +207,21 @@ function editProduct(id: string, product: NewProduct) {
   return fetch(`http://localhost:8080/products/${id}`, {
     method: 'PATCH',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(
       {
-        "name": product.name,
-        "price": product.price,
-        "image": product.image,
-        "type": product.type
+        'name': product.name,
+        'price': product.price,
+        'image': product.image,
+        'type': product.type
       }
     )
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Error al editar el producto");
+        throw new Error('Error al editar el producto');
       }
       return response.json();
     })
@@ -232,7 +229,7 @@ function editProduct(id: string, product: NewProduct) {
       return data;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       return error;
     });
 }
@@ -241,13 +238,13 @@ function deleteUser(id: string) {
   return fetch(`http://localhost:8080/users/${id}`, {
     method: 'DELETE',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Error al eliminar usuario");
+        throw new Error('Error al eliminar usuario');
       }
       return response.json();
     })
@@ -255,7 +252,7 @@ function deleteUser(id: string) {
       return data;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       return error;
     });
 }
@@ -264,20 +261,20 @@ function addUser(user: NewUser) {
   fetch('http://localhost:8080/users', {
     method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(
       {
-       "email": user.email,
-       "password":user.password,
-       "role":user.role,
+        'email': user.email,
+        'password':user.password,
+        'role':user.role,
       }
     )
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Error al traer los usuarios");
+        throw new Error('Error al traer los usuarios');
       }
       return response.json();
     })
@@ -285,7 +282,7 @@ function addUser(user: NewUser) {
       return data;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       return error;
     });
 }
@@ -294,21 +291,21 @@ function editUser(id: string, user: NewUser) {
   return fetch(`http://localhost:8080/users/${id}`, {
     method: 'PATCH',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(
       {
-        "email": user.email,
-        "password":user.password,
-        "role":user.role,
+        'email': user.email,
+        'password':user.password,
+        'role':user.role,
        
       }
     )
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Error al editar el usuario");
+        throw new Error('Error al editar el usuario');
       }
       return response.json();
     })
@@ -316,15 +313,10 @@ function editUser(id: string, user: NewUser) {
       return data;
     })
     .catch((error) => {
-      console.error("Error:", error);
+      console.error('Error:', error);
       return error;
     });
 }
-
-
-
-
-
  
 export {
   requestget,
@@ -340,5 +332,4 @@ export {
   addUser,
   editUser
 };
-
   

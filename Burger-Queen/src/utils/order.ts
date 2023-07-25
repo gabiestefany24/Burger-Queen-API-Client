@@ -22,7 +22,7 @@ function createOrder(client: string, selectedProducts:Product[], quantities: Qua
     dataEntry: formattedDate,
   };
 
-  return sendOrder(orden)
+  return sendOrder(orden);
 }
 
 
