@@ -1,16 +1,16 @@
-import "@testing-library/jest-dom";
-import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+import '@testing-library/jest-dom';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import Ordersummary, {
   OrdersummaryProps,
-} from "../components/ordersummary/ordersummary";
+} from '../components/ordersummary/ordersummary';
 // import React from "react";
 const product = {
   id: 3,
-  name: "test",
+  name: 'test',
   price: 500,
-  image: "https://img.com/test.png",
-  type: "Almuerzo",
-  dateEntry: "2022-03-05 15:14:10",
+  image: 'https://img.com/test.png',
+  type: 'Almuerzo',
+  dateEntry: '2022-03-05 15:14:10',
   quantity: 1,
 };
 // jest.mock("../components/productCard/ProductCard", () => ({
@@ -24,48 +24,48 @@ const mockProps: OrdersummaryProps = {
   createOrder: jest.fn(),
 };
 
-it("selectesproduct renders correctly", async () => {
+it('selectesproduct renders correctly', async () => {
   render(<Ordersummary {...mockProps} />);
   await waitFor(() => {
-    expect(screen.getByText("test")).toBeInTheDocument();
+    expect(screen.getByText('test')).toBeInTheDocument();
   });
 });
-it("increasequantity return value is shown in p element", async () => {
+it('increasequantity return value is shown in p element', async () => {
   render(<Ordersummary {...mockProps} />);
 
   await waitFor(() => {
-    const btnmore = screen.getByAltText("añadir");
-    const btnless = screen.getByAltText("disminuir");
+    const btnmore = screen.getByAltText('añadir');
+    const btnless = screen.getByAltText('disminuir');
     fireEvent.click(btnmore);
     fireEvent.click(btnmore);
     fireEvent.click(btnmore);
     fireEvent.click(btnless);
-    expect(screen.getByTestId("p_quantity3")).toHaveTextContent("3");
+    expect(screen.getByTestId('p_quantity3')).toHaveTextContent('3');
   });
 });
-it("onRemoveItem function is called", async () => {
+it('onRemoveItem function is called', async () => {
   render(<Ordersummary {...mockProps} />);
 
   await waitFor(() => {
-    fireEvent.click(screen.getByAltText("eliminarProducto"));
+    fireEvent.click(screen.getByAltText('eliminarProducto'));
     expect(mockProps.onRemoveItem(product.id));
   });
 });
 
-test("handleCreateOrder function is called", async () => {
+test('handleCreateOrder function is called', async () => {
   const createOrder = jest.fn();
   render(<Ordersummary {...mockProps} />);
   await waitFor(() => {
-    const input = screen.getByTestId("clientName");
-    input.innerHTML = "Hi";
+    const input = screen.getByTestId('clientName');
+    input.innerHTML = 'Hi';
     expect(createOrder).toHaveBeenCalled;
   });
 });
 
-test("should call onRemoveItem when the delete button is clicked", async () => {
+test('should call onRemoveItem when the delete button is clicked', async () => {
   render(<Ordersummary {...mockProps} />);
   await waitFor(() => {
-    fireEvent.click(screen.getByText("Borrar Orden"));
+    fireEvent.click(screen.getByText('Borrar Orden'));
     expect(mockProps.clearOrder).toHaveBeenCalled;
   });
 });
