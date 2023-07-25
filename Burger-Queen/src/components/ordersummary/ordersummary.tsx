@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Product } from '../productCard/ProductCard';
 import add from '../../assets/añadir.png';
 import reduce from '../../assets/disminuir.png';
@@ -39,6 +39,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
       clearOrder(setClient);
     });
   };
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const initialQuantities: { [key: number]: number } = {};
@@ -46,6 +47,9 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
       initialQuantities[item.id] = quantities[item.id] || 1;
     });
     setQuantities(initialQuantities);
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedProducts]);
 
@@ -75,45 +79,47 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
       <div className = {styles.containerClient}>
         <span>Cliente</span>
         <input className={styles.inputCliente} data-testid= "clientName" type='text'  value={client}
-        onChange={(e) => setClient(e.target.value)}/>
+          onChange={(e) => setClient(e.target.value)}/>
       </div>
-      {selectedProducts.map((item, index) => (
+      <div className= {styles.containerProducts} ref={containerRef}>
+        {selectedProducts.map((item, index) => (
 
-        <div key={`${item.id}-${index}`} className={styles.order}>
-          <div className={styles.containerQuantity}>
-            <img
-              className={styles.icon}
-              src={reduce}
-              alt="disminuir"
-              onClick={() => decreaseQuantity(item.id)}
-            />
-            <p className={styles.orderQuantity} data-testid={`p_quantity${item.id}`}>{quantities[item.id]||1}</p>
+          <div key={`${item.id}-${index}`} className={styles.order}>
+            <div className={styles.containerQuantity}>
+              <img
+                className={styles.icon}
+                src={reduce}
+                alt="disminuir"
+                onClick={() => decreaseQuantity(item.id)}
+              />
+              <p className={styles.orderQuantity} data-testid={`p_quantity${item.id}`}>{quantities[item.id]||1}</p>
       
+              <img
+                data-testid={`add_${item.id}`}
+                className={styles.icon}
+                src={add}
+                alt="añadir"
+                onClick={() => increaseQuantity(item.id)}
+              />
+            </div>
+            <p className={styles.orderProduct}>{item.name}</p>
+            <p className={styles.orderPrize}>${calculatePrice(item)}</p>
             <img
-              data-testid={`add_${item.id}`}
-              className={styles.icon}
-              src={add}
-              alt="añadir"
-              onClick={() => increaseQuantity(item.id)}
+              className={styles.cancelorange}
+              src={cancelorange}
+              alt="eliminarProducto"
+              onClick={() => {
+                onRemoveItem(item.id); // Llamar a la función onRemoveItem con el ID del producto
+                setQuantities((prevQuantities) => {
+                  const updatedQuantities = { ...prevQuantities };
+                  delete updatedQuantities[item.id];
+                  return updatedQuantities;
+                });
+              }}
             />
           </div>
-          <p className={styles.orderProduct}>{item.name}</p>
-          <p className={styles.orderPrize}>${calculatePrice(item)}</p>
-          <img
-            className={styles.cancelorange}
-            src={cancelorange}
-            alt="eliminarProducto"
-            onClick={() => {
-              onRemoveItem(item.id); // Llamar a la función onRemoveItem con el ID del producto
-              setQuantities((prevQuantities) => {
-                const updatedQuantities = { ...prevQuantities };
-                delete updatedQuantities[item.id];
-                return updatedQuantities;
-              });
-            }}
-          />
-        </div>
-      ))}
+        ))}
+      </div>
       <div className={styles.containerTotal}>
         <p className={styles.totalTitle}>Total</p>
         <p className={styles.totalPrize}> ${calculateTotalPrice()}</p>

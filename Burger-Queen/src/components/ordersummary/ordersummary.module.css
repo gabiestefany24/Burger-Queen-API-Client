@@ -8,6 +8,19 @@
     align-items: center;
 
 }
+
+.containerProducts{
+    height: 450px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
+
+/* ::-webkit-scrollbar{
+    width: 15px; 
+} */
 p, span{
     font-size: 20px;
 }
@@ -47,7 +60,7 @@ p, span{
     width: 15vw;
 }
 .containerTotal{
-    position: fixed;
+    position: absolute;
     top: 75%;
     width: 34%;
     display:flex;
