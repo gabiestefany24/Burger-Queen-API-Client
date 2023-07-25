@@ -102,4 +102,10 @@ body {
     margin-right: 5vw;
     gap: 2vw;
     overflow-y: auto;
+   
+  }
+
+
+  .hidden{
+    display: none;
   }

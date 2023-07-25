@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -133,24 +133,22 @@
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -197,13 +195,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">import styles from './Header.module.css';
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import styles from './Header.module.css';
 import React from 'react';
 import {Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/smallLogo.png'
@@ -234,7 +234,7 @@ const Header:React.FC = () =&gt; {
           {localStorage.getItem('userRole') !='chef' &amp;&amp; 
           &lt;div className={styles.containerIcons}&gt;
             {localStorage.getItem('userRole') ==='admin' &amp;&amp; 
-<span class="branch-1 cbranch-no" title="branch not covered" >            &lt;&gt;</span>
+            &lt;&gt;
               &lt;Link className={styles.links} to="/adminmain"&gt;
               &lt;div className={styles.containerCreateOrderIcon}&gt;
                 &lt;img className={styles.createOrderIcon} src={iconadmingreen}&gt;&lt;/img&gt;
@@ -258,7 +258,7 @@ const Header:React.FC = () =&gt; {
             &lt;Link className={styles.links} to="/waiterdelivering"&gt;
               &lt;div className={styles.containerOrdersIcon}&gt;
                 &lt;img className={styles.ordersIcon} src={icondelivering}&gt;&lt;/img&gt;
-                &lt;span&gt;Órdenes&lt;/span&gt;
+                &lt;span&gt;Ordenes&lt;/span&gt;
               &lt;/div&gt;
             &lt;/Link&gt;
           &lt;/div&gt;
@@ -267,7 +267,7 @@ const Header:React.FC = () =&gt; {
             className={styles.outicon}
             src={outicon}
             alt="iconosalida"
-            onClick={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >handleLogout(navigate)}</span>&gt;
+            onClick={() =&gt; handleLogout(navigate)}&gt;
             &lt;/img&gt;
         &lt;/header&gt;
       &lt;/&gt;
@@ -280,7 +280,7 @@ export default Header;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-07-21T18:00:27.029Z
+                at 2023-07-25T13:41:04.248Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
