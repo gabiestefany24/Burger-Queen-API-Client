@@ -49,22 +49,33 @@ describe("Chefview component", () => {
       </BrowserRouter>
     );
 
+  //   const statusElement = screen.getByTestId("status");
+
+  //   expect(statusElement).toHaveTextContent("pending");
+
+  //   fireEvent.click(screen.getByText('Historial'));
+   
+  //   expect(statusElement).toHaveTextContent("delivering");
+  // });
+
 
    
     screen.debug()
     const historyButton = screen.getByText('Historial');
 
-    // Verificar el estado inicial
+    //Verificar el estado inicial
     expect(screen.getByTestId('status')).toHaveTextContent('pending');
 
-    // Simular clic en el botón "Historial"
+    //Simular clic en el botón "Historial"
     fireEvent.click(historyButton);
 
-    // Verificar el estado actualizado
+    //Verificar el estado actualizado
     expect(screen.getByTestId('status')).toHaveTextContent('delivering');
+
+    });
  
     
-  });
+
 
 
   test('button Órdenes', () => {
@@ -89,9 +100,9 @@ describe("Chefview component", () => {
  
     
   });
+
+
 });
-
-
  
 
 

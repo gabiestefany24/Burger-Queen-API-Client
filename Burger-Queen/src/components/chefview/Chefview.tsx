@@ -22,13 +22,15 @@ const Chefview: React.FC = () => {
       <Header/>
       <nav className={styles.optionsNav}>
         <div className={styles.buttonsNav}>
-          <button className={styles.btnNav} onClick={() => handleNavClick('pending')}>Órdenes</button>
-          <button className={styles.btnNav} onClick={() => handleNavClick('delivering')}>Historial</button>
+
+          <button className={status === 'pending'? styles.selectedBtnNav:styles.btnNav} onClick={() => handleNavClick("pending")}>Órdenes</button>
+          <button className={status === 'delivering'? styles.selectedBtnNav:styles.btnNav}onClick={() => handleNavClick("delivering")}>Historial</button>
         </div>
       </nav>
       <section className={styles.containercheforders}>
-        <div data-testid="status"></div>
-        <OrderCard status={status} />
+      <OrderCard status={status} />
+      <div data-testid="status" className={styles.hidden}>{status}</div>
+
       </section>
     </>
   );

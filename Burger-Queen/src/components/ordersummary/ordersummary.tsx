@@ -74,8 +74,8 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
     <>
       <div className = {styles.containerClient}>
         <span>Cliente</span>
-        <input className={styles.inputCliente} type='text'  value={client}
-          onChange={(e) => setClient(e.target.value)}/>
+        <input className={styles.inputCliente} data-testid= "clientName" type='text'  value={client}
+        onChange={(e) => setClient(e.target.value)}/>
       </div>
       {selectedProducts.map((item, index) => (
 

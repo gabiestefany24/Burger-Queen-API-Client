@@ -52,7 +52,7 @@ const Header:React.FC = () => {
             <Link className={styles.links} to="/waiterdelivering">
               <div className={styles.containerOrdersIcon}>
                 <img className={styles.ordersIcon} src={icondelivering}></img>
-                <span>Órdenes</span>
+                <span>Ordenes</span>
               </div>
             </Link>
           </div>
