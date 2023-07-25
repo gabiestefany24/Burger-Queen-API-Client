@@ -1,5 +1,5 @@
 .containerAdminView{
-    background-image: url('../../src/assets/FondoAdmWhite.png');
+    background-image: url('/FondoAdmWhite.png');
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
