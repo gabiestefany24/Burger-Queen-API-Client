@@ -12,7 +12,7 @@ body{
 }
   
 .backgroundImageSection{
-    background-image: url('/assets/Fondo.png');
+    background-image: url('/Fondo.png');
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
