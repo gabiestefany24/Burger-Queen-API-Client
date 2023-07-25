@@ -20,6 +20,14 @@ caption {
 table{
     border-collapse: collapse;
 }
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+  }
+
 th,
 td {
     padding: 1rem;
