@@ -1,18 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen, fireEvent, waitFor} from '@testing-library/react';
 import ProductCard, { ProductCardProps } from '../components/productCard/ProductCard';
-jest.mock('../request/request', () => ({
-    getProductData: jest.fn().mockResolvedValue([
-        {
-            id: 1,
-            name: 'Product 1',
-            price: 10,
-            image: 'image-url',
-            type: 'desayuno',
-            quantity: 1,
-        },
-    ]),
-}));
 
 describe('ProductCard', () => {
 
