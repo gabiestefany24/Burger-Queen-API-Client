@@ -22,7 +22,7 @@ describe("Login", () => {
       '/',
       window.location.origin + '/',
     );
-   })
+   });
  
   test("handleLogin funciona correctamente con waiter", async () => {
     // Mock de las funciones necesarias
@@ -66,7 +66,7 @@ describe("Login", () => {
    
     });
     await waitFor(() => {
-      expect(localStorage.getItem('userRole')).toBe("waiter")
+      expect(localStorage.getItem('userRole')).toBe("waiter");
       expect(document.location.pathname).toBe("/waiterorder");
       expect(screen.getByText("waiter")).toBeInTheDocument();
       
@@ -120,10 +120,10 @@ describe("Login", () => {
     });
    
     await waitFor(() => {
-      expect(localStorage.getItem('userRole')).toBe("admin")
+      expect(localStorage.getItem('userRole')).toBe("admin");
       expect(document.location.pathname).toBe("/adminview");
       expect(screen.getByText("admin")).toBeInTheDocument();
-      console.log(document.location.pathname)
+      console.log(document.location.pathname);
       
     });
   });
@@ -172,10 +172,10 @@ describe("Login", () => {
     });
    
     await waitFor(() => {
-      expect(localStorage.getItem('userRole')).toBe("chef")
+      expect(localStorage.getItem('userRole')).toBe("chef");
       expect(document.location.pathname).toBe("/chefview");
       expect(screen.getByText("chef")).toBeInTheDocument();
-      console.log(document.location.pathname)
+      console.log(document.location.pathname);
       
     });
   });

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'; 
-import styles from './ProductCard.module.css'
+import styles from './ProductCard.module.css';
 import { getProductData } from '../../request/request';
 
 export interface Product {
@@ -37,27 +37,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ onSelectProduct, selectedProd
     }
   }; 
 
-
   return (
-      <>
-          {filteredProducts.map((product) => (
-              <div
-                  data-testid={`product_test_${product.id}`}
-                  key={product.id}
-                  className={`${styles.cardProduct} ${selectedProducts.find((selectedProduct) => selectedProduct.id === product.id) ? styles.disabled : ''}`}
-                  onClick={() => handleProductClick(product)}
-              >
-                  <img className={styles.imgproduct} alt={product.name} src={product.image} />
-                  <div className={styles.titlecard}>
-                      <p>{product.name}</p>
-                      <p className= {styles.price}>{`$${product.price}`}</p>
-                  </div>
-              </div>
-          ))} 
-      </>
-  ) 
+    <>
+      {filteredProducts.map((product) => (
+        <div
+          data-testid={`product_test_${product.id}`}
+          key={product.id}
+          className={`${styles.cardProduct} ${selectedProducts.find((selectedProduct) => selectedProduct.id === product.id) ? styles.disabled : ''}`}
+          onClick={() => handleProductClick(product)}
+        >
+          <img className={styles.imgproduct} alt={product.name} src={product.image} />
+          <div className={styles.titlecard}>
+            <p>{product.name}</p>
+            <p className= {styles.price}>{`$${product.price}`}</p>
+          </div>
+        </div>
+      ))} 
+    </>
+  ); 
 
-}
+};
 
-export default ProductCard
+export default ProductCard;
 

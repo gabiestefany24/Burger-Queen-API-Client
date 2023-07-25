@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from "react";
-import styles from "./AddUsers.module.css";
+import React, { useState, useEffect} from 'react';
+import styles from './AddUsers.module.css';
 import addUserIcon from '../../../../assets/addNewProduct.png';
 import {NewUser} from '../../../../utils/interface';
-import {User} from '../../../../utils/interface'
+import {User} from '../../../../utils/interface';
 import returnIcon from '../../../../assets/returnIcon.png';
 
 interface AddUserProps {
@@ -20,14 +20,13 @@ const AddUsers: React.FC<AddUserProps> = ({onAddUser, editUserInfo, editUserStat
   const [userPassword, setUserPassword] = useState('');
   const [userRole, setUserRole] = useState('waiter');
 
-
   useEffect(()=>{
     const handleEditUser=()=>{
       setUserEmail(editUserInfo.email);
       setUserRole(editUserInfo.role);
-    }
-    handleEditUser()
-  }, [editUserInfo])
+    };
+    handleEditUser();
+  }, [editUserInfo]);
 
   const handleClick = () => {
     const newUser ={
@@ -37,7 +36,7 @@ const AddUsers: React.FC<AddUserProps> = ({onAddUser, editUserInfo, editUserStat
     };
 
     if (userPassword.trim() === '') {
-      console.log('introduzca una contraseña')
+      console.log('introduzca una contraseña');
       return;
     }
 
@@ -46,53 +45,52 @@ const AddUsers: React.FC<AddUserProps> = ({onAddUser, editUserInfo, editUserStat
     setUserPassword('');
     setUserRole('');
  
-  }
- 
+  };
   
   return (
     <>
       <main className={styles.backgroundadminusers}>
         <section className={styles.addUserContainer}>
           <form className={styles.formContainer}>
-          {editUserState? <><img className={styles.returnIcon} src={returnIcon}  onClick={() => onReturn() } /><p className={styles.formTitle}> Editar Usuario </p> </>: <p className={styles.formTitle}> Agregar Usuario </p>}
+            {editUserState? <><img className={styles.returnIcon} src={returnIcon}  onClick={() => onReturn() } /><p className={styles.formTitle}> Editar Usuario </p> </>: <p className={styles.formTitle}> Agregar Usuario </p>}
             <label className={styles.labelInput}>Correo
-            <input
-              className={styles.productInput}
-              type="text"
-              value = {userEmail || ''}
-              onChange={(e) => setUserEmail(e.target.value)}
+              <input
+                className={styles.productInput}
+                type="text"
+                value = {userEmail || ''}
+                onChange={(e) => setUserEmail(e.target.value)}
 
-            ></input>
+              ></input>
             </label>
             <label className={styles.labelInput}>{editUserState ? 'Nueva contraseña' : 'Contraseña'}
-            <input
-              className={styles.productInput}
-              type="password"
-              value= {userPassword || ''}
-              onChange={(e) => setUserPassword(e.target.value)}
-            ></input>
+              <input
+                className={styles.productInput}
+                type="password"
+                value= {userPassword || ''}
+                onChange={(e) => setUserPassword(e.target.value)}
+              ></input>
             </label>
             <label className={styles.labelInput}>Rol
-            <select
-              className={styles.rolSelect}
-               name="selectedType"
-               value={userRole || 'Administrador'}
-               onChange={(e) => setUserRole(e.target.value)}
-           >
+              <select
+                className={styles.rolSelect}
+                name="selectedType"
+                value={userRole || 'Administrador'}
+                onChange={(e) => setUserRole(e.target.value)}
+              >
             
-                        <option value={'admin'}>Administrador</option>
-                        <option value={'chef'}>Chef</option>
-                        <option value={'waiter'}>Mesero</option>
-                    </select>
+                <option value={'admin'}>Administrador</option>
+                <option value={'chef'}>Chef</option>
+                <option value={'waiter'}>Mesero</option>
+              </select>
             </label>
             {editUserState?
-            <button className={styles.formBtn} type="button" onClick={handleClick}>
-              <img src={addUserIcon} alt="Edit User" />
+              <button className={styles.formBtn} type="button" onClick={handleClick}>
+                <img src={addUserIcon} alt="Edit User" />
                 Editar
-            </button> : <button className={styles.formBtn} type="button" onClick={handleClick}>
-              <img src={addUserIcon} alt="Add User" />
+              </button> : <button className={styles.formBtn} type="button" onClick={handleClick}>
+                <img src={addUserIcon} alt="Add User" />
                 Agregar
-            </button>  }
+              </button>  }
            
           </form>
 

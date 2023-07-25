@@ -4,8 +4,8 @@ import add from '../../assets/añadir.png';
 import reduce from '../../assets/disminuir.png';
 import cancelorange from '../../assets/cancelorange.png';
 import styles from './ordersummary.module.css';
-import cancelwhite from '../../assets/cancelwhite.png'
-import checkwhite from '../../assets/checkwhite.png'
+import cancelwhite from '../../assets/cancelwhite.png';
+import checkwhite from '../../assets/checkwhite.png';
 export interface OrdersummaryProps {
   selectedProducts: Product[];
   onRemoveItem: (itemId: number) => void;
@@ -31,7 +31,7 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
 
   const handleCreateOrder = () => {
     if (client.trim() === '') {
-      console.log('introduzca nombre de cliente')
+      console.log('introduzca nombre de cliente');
       return;
     }
 
@@ -46,10 +46,10 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
       initialQuantities[item.id] = quantities[item.id] || 1;
     });
     setQuantities(initialQuantities);
-   // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [selectedProducts]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedProducts]);
 
-    const decreaseQuantity = (itemId: number) => {
+  const decreaseQuantity = (itemId: number) => {
     setQuantities((prevQuantities) => {
       const quantity = prevQuantities[itemId] || 0;
       const updatedQuantity = quantity > 0 ? quantity - 1 : 0;
@@ -69,14 +69,13 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
     const quantity = quantities[item.id] || 1;
     return (item.price * quantity).toFixed(2);
   };
-
  
   return (
     <>
       <div className = {styles.containerClient}>
         <span>Cliente</span>
         <input className={styles.inputCliente} type='text'  value={client}
-        onChange={(e) => setClient(e.target.value)}/>
+          onChange={(e) => setClient(e.target.value)}/>
       </div>
       {selectedProducts.map((item, index) => (
 
@@ -89,7 +88,6 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
               onClick={() => decreaseQuantity(item.id)}
             />
             <p className={styles.orderQuantity} data-testid={`p_quantity${item.id}`}>{quantities[item.id]||1}</p>
-
       
             <img
               data-testid={`add_${item.id}`}
@@ -116,14 +114,14 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
           />
         </div>
       ))}
-       <div className={styles.containerTotal}>
-            <p className={styles.totalTitle}>Total</p>
-            <p className={styles.totalPrize}> ${calculateTotalPrice()}</p>
-       </div>
-       <div className={styles.containerBtn}>
-                <button className={styles.btnRemove} onClick={() => {clearOrder(setClient)}}><img className={styles.cancelorange} src={cancelwhite} alt="eliminar"></img>Borrar Orden</button>
-                <button className={styles.btnSend} onClick={handleCreateOrder}><img className={styles.cancelorange} src={checkwhite} alt="enviar"></img>Enviar</button>
-        </div>
+      <div className={styles.containerTotal}>
+        <p className={styles.totalTitle}>Total</p>
+        <p className={styles.totalPrize}> ${calculateTotalPrice()}</p>
+      </div>
+      <div className={styles.containerBtn}>
+        <button className={styles.btnRemove} onClick={() => {clearOrder(setClient);}}><img className={styles.cancelorange} src={cancelwhite} alt="eliminar"></img>Borrar Orden</button>
+        <button className={styles.btnSend} onClick={handleCreateOrder}><img className={styles.cancelorange} src={checkwhite} alt="enviar"></img>Enviar</button>
+      </div>
     </>
   );
 };

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import styles from "./OrderCard.module.css";
-import iconready from "../../assets/iconready.png";
-import icondelivered from "../../assets/icondelivered.png";
-import { getOrders, updateDataDelivering } from "../../request/request";
-import calculateTotalPreparationTime from "../../utils/totaltime";
-import OrderDefault from "../orderDefault/OrderDefault";
+import React, { useEffect, useState } from 'react';
+import styles from './OrderCard.module.css';
+import iconready from '../../assets/iconready.png';
+import icondelivered from '../../assets/icondelivered.png';
+import { getOrders, updateDataDelivering } from '../../request/request';
+import calculateTotalPreparationTime from '../../utils/totaltime';
+import OrderDefault from '../orderDefault/OrderDefault';
 
 interface Order {
   id: number;
@@ -32,9 +32,8 @@ interface OrderCardProps {
 
 const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
   const [orders, setOrders] = useState<Order[]>([]);
-  const notReadyOrders = orders.filter((order) => order.status === "pending");
-  const readyOrders = orders.filter((order) => order.status === "delivering");
-
+  const notReadyOrders = orders.filter((order) => order.status === 'pending');
+  const readyOrders = orders.filter((order) => order.status === 'delivering');
   
   const fetchOrders = async () => {
     const data = await getOrders();
@@ -43,7 +42,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
   };
   
   useEffect(() => {
-       fetchOrders();
+    fetchOrders();
   }, []);
 
   const handleOrderReady = async (orderId: number) => {
@@ -58,7 +57,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
 
   return (
     <>
-      {status === "pending" &&
+      {status === 'pending' &&
         notReadyOrders.map((order, index) => (
           <div
             key={`${order.id}_${index}`}
@@ -73,12 +72,12 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
                 className={styles.iconready}
                 src={iconready}
                 alt="iconready"
-              ></img>{" "}
+              ></img>{' '}
               Orden lista
             </button>
           </div>
         ))}
-      {status === "delivering" &&
+      {status === 'delivering' &&
         readyOrders.map((order, index) => (
           <div key={`${order.id}_${index}`} className={styles.containercheforder}>
             <OrderDefault order={order} />
@@ -91,7 +90,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
 
         ))}
 
-      {status === "deliveringWaiter" &&
+      {status === 'deliveringWaiter' &&
         readyOrders.map((order, index) => (
           <div
             key={`${order.id}_${index}`}
@@ -106,7 +105,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
                 className={styles.icondelivered}
                 src={icondelivered}
                 alt="icondelivered"
-              ></img>{" "}
+              ></img>{' '}
               Entregado
             </button>
           </div>
@@ -116,6 +115,4 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
 };
 
 export default OrderCard;
-
-
 
