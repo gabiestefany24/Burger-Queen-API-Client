@@ -177,7 +177,6 @@ export default defineConfig({
             'type': 'image/png',
             'purpose': 'any maskable'
           },
-
         ]
         // Add other custom properties here if needed.
       },
