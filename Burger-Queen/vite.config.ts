@@ -1,15 +1,3 @@
-/* import { VitePWA } from 'vite-plugin-pwa';
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react(),  VitePWA({ registerType: 'autoUpdate', devOptions: {
-    enabled: true
-  } })],
-});
- */
-
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -149,7 +137,7 @@ export default defineConfig({
           },
           {
             'src': './src/assets/outicon',
-            'sizes': '40x40',
+            'sizes': '145x145',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
