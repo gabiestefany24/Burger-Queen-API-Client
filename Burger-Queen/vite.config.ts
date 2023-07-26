@@ -149,7 +149,7 @@ export default defineConfig({
           },
           {
             'src': './src/assets/outicon',
-            'sizes': '40x40',
+            'sizes': '145x145',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
