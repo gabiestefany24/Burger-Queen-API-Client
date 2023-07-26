@@ -129,7 +129,7 @@ function getOrders() {
     });
 }
 
-function updateDataDelivering(id: number) {
+function updateDataDelivering(id: number, status : string) {
   const currentDate = new Date();
   const timezoneOffset = currentDate.getTimezoneOffset() * 60000; // Get the time zone offset in milliseconds
   const localDate = new Date(currentDate.getTime() - timezoneOffset); // Adjust the date based on the time zone offset
@@ -142,7 +142,7 @@ function updateDataDelivering(id: number) {
     },
     body: JSON.stringify(
       {
-        'status': 'delivering',
+        'status': status,
         'dataDelivering': formattedDate, 
       }
     )

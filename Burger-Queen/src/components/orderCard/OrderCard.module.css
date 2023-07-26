@@ -105,3 +105,7 @@
 .orderTimeText{
     font-size: 1.4rem;
 }
+
+button:hover{
+    cursor: pointer;
+}
