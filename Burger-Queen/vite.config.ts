@@ -16,151 +16,151 @@ export default defineConfig({
         background_color: '#ffffff',
         icons: [
           {
-            'src': './src/assets/addNewProduct.png',
+            'src': 'assets/addNewProduct.png',
             'sizes': '49x49',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/añadir.png',
+            'src': 'assets/añadir.png',
             'sizes': '24x24',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/cancelorange.png',
+            'src': 'assets/cancelorange.png',
             'sizes': '24x24',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/cancelwhite.png',
+            'src': 'assets/cancelwhite.png',
             'sizes': '24x24',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/checkgreen.png',
+            'src': 'assets/checkgreen.png',
             'sizes': '24x24',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/checkwhite.png',
+            'src': 'assets/checkwhite.png',
             'sizes': '24x24',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/chef.png',
+            'src': 'assets/chef.png',
             'sizes': '37x35',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/deleteicon.png',
+            'src': 'assets/deleteicon.png',
             'sizes': '39x39',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/disminuir.png',
+            'src': 'assets/disminuir.png',
             'sizes': '24x24',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/editIcon',
+            'src': 'assets/editIcon.png',
             'sizes': '25x26',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/fullLogo.png',
+            'src': 'assets/fullLogo.png',
             'sizes': '394x393',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/iconadmin',
+            'src': 'assets/iconadmin.png',
             'sizes': '52x48',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/iconadmingreen.png',
+            'src': 'assets/iconadmingreen.png',
             'sizes': '37x35',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/iconclock.png',
+            'src': 'assets/iconclock.png',
             'sizes': '40x40',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/iconcreate',
+            'src': 'assets/iconcreate.png',
             'sizes': '37x35',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/icondelivered.png',
+            'src': 'assets/icondelivered.png',
             'sizes': '32x32',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/delivering',
+            'src': 'assets/delivering.png',
             'sizes': '32x32',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/iconkitchen.png',
+            'src': 'assets/iconkitchen.png',
             'sizes': '52x48',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/iconready',
+            'src': 'assets/iconready.png',
             'sizes': '26x29',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/iconwaiter.png',
+            'src': 'assets/iconwaiter.png',
             'sizes': '53x53',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/outicon',
-            'sizes': '145x145',
-            'type': 'image/png',
-            'purpose': 'any maskable'
-          },
-          {
-            'src': './src/assets/removeorange.png',
-            'sizes': '24x24',
-            'type': 'image/png',
-            'purpose': 'any maskable'
-          },
-          {
-            'src': './src/assets/returnicon',
+            'src': 'assets/outicon.png',
             'sizes': '48x48',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/searchicon.png',
+            'src': 'assets/removeorange.png',
+            'sizes': '24x24',
+            'type': 'image/png',
+            'purpose': 'any maskable'
+          },
+          {
+            'src': 'assets/returnicon.png',
+            'sizes': '144x144',
+            'type': 'image/png',
+            'purpose': 'any maskable'
+          },
+          {
+            'src': 'assets/searchicon.png',
             'sizes': '26x21',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': './src/assets/smallLogo',
+            'src': 'assets/smallLogo.png',
             'sizes': '216x62',
             'type': 'image/png',
             'purpose': 'any maskable'
