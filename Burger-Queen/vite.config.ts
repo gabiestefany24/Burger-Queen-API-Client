@@ -16,7 +16,7 @@ export default defineConfig({
         background_color: '#ffffff',
         icons: [
           {
-            'src': './src/assets/Fondo.png',
+            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/fullLogo-b86f60fc.png',
             'sizes': '144x144',
             'type': 'image/png',
             'purpose': 'any maskable'
