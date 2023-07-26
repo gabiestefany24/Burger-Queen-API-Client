@@ -16,37 +16,37 @@ export default defineConfig({
         background_color: '#ffffff',
         icons: [
           {
-            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/fullLogo-b86f60fc.png',
+            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/fullLogo-b86f60fc.png',
             'sizes': '144x144',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/addNewProduct.png',
+            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/addNewProduct.png',
             'sizes': '144x144',
             'type': 'image/png',
             'purpose': 'any maskable'
           }, 
           {
-            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/añadir.png',
+            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/añadir.png',
+            'sizes': '144x144',
+            'type': 'image/png',
+            'purpose': 'any maskable'
+          }, 
+          // {
+          //   'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/cancelorange.png',
+          //   'sizes': '144x144',
+          //   'type': 'image/png',
+          //   'purpose': 'any maskable'
+          // }, 
+          {
+            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/cancelwhite.png',
             'sizes': '144x144',
             'type': 'image/png',
             'purpose': 'any maskable'
           }, 
           {
-            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/cancelorange.png',
-            'sizes': '144x144',
-            'type': 'image/png',
-            'purpose': 'any maskable'
-          }, 
-          {
-            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/cancelwhite.png',
-            'sizes': '144x144',
-            'type': 'image/png',
-            'purpose': 'any maskable'
-          }, 
-          {
-            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/checkgreen.png',
+            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/checkgreen.png',
             'sizes': '144x144',
             'type': 'image/png',
             'purpose': 'any maskable'
