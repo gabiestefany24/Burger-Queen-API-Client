@@ -16,11 +16,22 @@ export default defineConfig({
         background_color: '#ffffff',
         icons: [
           {
-            'src': 'assets/addNewProduct.png',
-            'sizes': '49x49',
+            'src': '/addNewProduct.png',
+            'sizes': '144x144',
             'type': 'image/png',
             'purpose': 'any maskable'
-          },
+          }
+        ]
+        // Add other custom properties here if needed.
+      },
+      devOptions: {
+        enabled: true,
+      },
+    }),
+  ],
+});
+
+/* ,
           {
             'src': 'assets/añadir.png',
             'sizes': '24x24',
@@ -164,13 +175,4 @@ export default defineConfig({
             'sizes': '216x62',
             'type': 'image/png',
             'purpose': 'any maskable'
-          },
-        ]
-        // Add other custom properties here if needed.
-      },
-      devOptions: {
-        enabled: true,
-      },
-    }),
-  ],
-});
+          }, */
