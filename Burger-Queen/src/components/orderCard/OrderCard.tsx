@@ -45,8 +45,8 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
     fetchOrders();
   }, []);
 
-  const handleOrderReady = async (orderId: number) => {
-    await updateDataDelivering(orderId);
+  const handleOrderReady = async (orderId: number, status: string) => {
+    await updateDataDelivering(orderId, status);
     fetchOrders();
 
     // const updatedOrders = orders.map((order) =>
@@ -66,7 +66,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
             <OrderDefault order={order} />
             <button
               className={styles.btnready}
-              onClick={() => handleOrderReady(order.id)}
+              onClick={() => handleOrderReady(order.id, 'delivering')}
             >
               <img
                 className={styles.iconready}
@@ -99,7 +99,7 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
             <OrderDefault order={order} />
             <button
               className={styles.btnready}
-              onClick={() => handleOrderReady(order.id)}
+              onClick={() => handleOrderReady(order.id, 'delivered')}
             >
               <img
                 className={styles.icondelivered}

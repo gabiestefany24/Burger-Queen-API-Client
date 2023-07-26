@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1690328907483" clover="3.2.0">
-  <project timestamp="1690328907483" name="All files">
+<coverage generated="1690379874012" clover="3.2.0">
+  <project timestamp="1690379874012" name="All files">
     <metrics statements="171" coveredstatements="162" conditionals="48" coveredconditionals="44" methods="55" coveredmethods="47" elements="274" coveredelements="253" complexity="0" loc="171" ncloc="171" packages="7" files="7" classes="7"/>
     <package name="components.chefview">
       <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
-      <file name="Chefview.tsx" path="C:\Laboratoria\Proyecto5\Burger-Queen-API-Client\Burger-Queen\src\components\chefview\Chefview.tsx">
+      <file name="Chefview.tsx" path="C:\Users\danis\OneDrive\Escritorio\Laboratoria\Burger-Queen-API-Client\Burger-Queen\src\components\chefview\Chefview.tsx">
         <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -22,7 +22,7 @@
     </package>
     <package name="components.header">
       <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-      <file name="Header.tsx" path="C:\Laboratoria\Proyecto5\Burger-Queen-API-Client\Burger-Queen\src\components\header\Header.tsx">
+      <file name="Header.tsx" path="C:\Users\danis\OneDrive\Escritorio\Laboratoria\Burger-Queen-API-Client\Burger-Queen\src\components\header\Header.tsx">
         <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -43,7 +43,7 @@
     </package>
     <package name="components.login">
       <metrics statements="30" coveredstatements="30" conditionals="7" coveredconditionals="7" methods="6" coveredmethods="6"/>
-      <file name="Login.tsx" path="C:\Laboratoria\Proyecto5\Burger-Queen-API-Client\Burger-Queen\src\components\login\Login.tsx">
+      <file name="Login.tsx" path="C:\Users\danis\OneDrive\Escritorio\Laboratoria\Burger-Queen-API-Client\Burger-Queen\src\components\login\Login.tsx">
         <metrics statements="30" coveredstatements="30" conditionals="7" coveredconditionals="7" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -79,7 +79,7 @@
     </package>
     <package name="components.ordersummary">
       <metrics statements="56" coveredstatements="50" conditionals="16" coveredconditionals="12" methods="19" coveredmethods="16"/>
-      <file name="ordersummary.tsx" path="C:\Laboratoria\Proyecto5\Burger-Queen-API-Client\Burger-Queen\src\components\ordersummary\ordersummary.tsx">
+      <file name="ordersummary.tsx" path="C:\Users\danis\OneDrive\Escritorio\Laboratoria\Burger-Queen-API-Client\Burger-Queen\src\components\ordersummary\ordersummary.tsx">
         <metrics statements="56" coveredstatements="50" conditionals="16" coveredconditionals="12" methods="19" coveredmethods="16"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -141,7 +141,7 @@
     </package>
     <package name="components.productCard">
       <metrics statements="20" coveredstatements="20" conditionals="7" coveredconditionals="7" methods="9" coveredmethods="9"/>
-      <file name="ProductCard.tsx" path="C:\Laboratoria\Proyecto5\Burger-Queen-API-Client\Burger-Queen\src\components\productCard\ProductCard.tsx">
+      <file name="ProductCard.tsx" path="C:\Users\danis\OneDrive\Escritorio\Laboratoria\Burger-Queen-API-Client\Burger-Queen\src\components\productCard\ProductCard.tsx">
         <metrics statements="20" coveredstatements="20" conditionals="7" coveredconditionals="7" methods="9" coveredmethods="9"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -167,7 +167,7 @@
     </package>
     <package name="components.waiterorder">
       <metrics statements="32" coveredstatements="29" conditionals="10" coveredconditionals="10" methods="14" coveredmethods="9"/>
-      <file name="Waiterorder.tsx" path="C:\Laboratoria\Proyecto5\Burger-Queen-API-Client\Burger-Queen\src\components\waiterorder\Waiterorder.tsx">
+      <file name="Waiterorder.tsx" path="C:\Users\danis\OneDrive\Escritorio\Laboratoria\Burger-Queen-API-Client\Burger-Queen\src\components\waiterorder\Waiterorder.tsx">
         <metrics statements="32" coveredstatements="29" conditionals="10" coveredconditionals="10" methods="14" coveredmethods="9"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -205,7 +205,7 @@
     </package>
     <package name="utils">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Logout.tsx" path="C:\Laboratoria\Proyecto5\Burger-Queen-API-Client\Burger-Queen\src\utils\Logout.tsx">
+      <file name="Logout.tsx" path="C:\Users\danis\OneDrive\Escritorio\Laboratoria\Burger-Queen-API-Client\Burger-Queen\src\utils\Logout.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="3" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
