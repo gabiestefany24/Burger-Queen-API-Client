@@ -154,7 +154,6 @@ export default defineConfig({
           },
 
         ]
-        
         // Add other custom properties here if needed.
       },
       devOptions: {
