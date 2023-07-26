@@ -16,7 +16,7 @@ export default defineConfig({
         background_color: '#ffffff',
         icons: [
           {
-            'src': '/addNewProduct.png',
+            'src': './src/assets/Fondo.png',
             'sizes': '144x144',
             'type': 'image/png',
             'purpose': 'any maskable'
