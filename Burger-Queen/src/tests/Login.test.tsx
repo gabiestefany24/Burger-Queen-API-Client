@@ -1,4 +1,4 @@
-/* import '@testing-library/jest-dom';
+import '@testing-library/jest-dom';
 import { render, waitFor, fireEvent, screen} from '@testing-library/react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from '../components/login/Login';
@@ -29,6 +29,7 @@ describe('Login', () => {
     requestgetMock.mockResolvedValueOnce({
       accessToken: 'asfsdgdjjsj',
       user: { email: 'gabriela@MediaList.com', 
+        password: '',
         role: 'waiter', 
         id: 3 },
     });
@@ -81,6 +82,7 @@ describe('Login', () => {
     requestgetMock.mockResolvedValueOnce({
       accessToken: 'asfsdgdjjsj',
       user: { email: 'gabriela@MediaList.com', 
+        password: '',
         role: 'admin', 
         id: 3 },
     });
@@ -133,6 +135,7 @@ describe('Login', () => {
     requestgetMock.mockResolvedValueOnce({
       accessToken: 'asfsdgdjjsj',
       user: { email: 'gabriela@MediaList.com', 
+        password:'',
         role: 'chef', 
         id: 3 },
     });
@@ -204,4 +207,3 @@ describe('Login', () => {
   });
 });
 
- */

@@ -11,7 +11,7 @@ export default {
     'src/components/waiterorder/Waiterorder.tsx',
     'src/components/chefview/Chefview.tsx',
     'src/components/header/Header.tsx',
-    /* 'src/components/login/Login.tsx', */
+    'src/components/login/Login.tsx', 
     'src/components/ordersummary/ordersummary.tsx',
     'src/components/productCard/ProductCard.tsx',
     'src/components/ordersummary/ordersummary.tsx',
