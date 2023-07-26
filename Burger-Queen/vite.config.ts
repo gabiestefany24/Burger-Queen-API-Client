@@ -20,6 +20,36 @@ export default defineConfig({
             'sizes': '144x144',
             'type': 'image/png',
             'purpose': 'any maskable'
+          },
+          {
+            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/addNewProduct.png',
+            'sizes': '144x144',
+            'type': 'image/png',
+            'purpose': 'any maskable'
+          }, 
+          {
+            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/añadir.png',
+            'sizes': '144x144',
+            'type': 'image/png',
+            'purpose': 'any maskable'
+          }, 
+          {
+            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/cancelorange.png',
+            'sizes': '144x144',
+            'type': 'image/png',
+            'purpose': 'any maskable'
+          }, 
+          {
+            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/cancelwhite.png',
+            'sizes': '144x144',
+            'type': 'image/png',
+            'purpose': 'any maskable'
+          }, 
+          {
+            'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/checkgreen.png',
+            'sizes': '144x144',
+            'type': 'image/png',
+            'purpose': 'any maskable'
           }
         ]
         // Add other custom properties here if needed.
