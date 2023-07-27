@@ -21,7 +21,6 @@ const Waiterorder: React.FC = () => {
   };
 
   const clearOrder = (setClient: React.Dispatch<React.SetStateAction<string>>) => {
-    console.log('ingresa a la real');
     setSelectedProducts([]);
     setClient('');
   };

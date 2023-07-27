@@ -49,10 +49,6 @@ const OrderCard: React.FC<OrderCardProps> = ({ status }) => {
     await updateDataDelivering(orderId, status);
     fetchOrders();
 
-    // const updatedOrders = orders.map((order) =>
-    //   order.id === orderId ? { ...order, status: statusText } : order
-    // );
-    // setOrders(updatedOrders);
   };
 
   return (

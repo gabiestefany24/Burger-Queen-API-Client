@@ -36,7 +36,6 @@ const AddUsers: React.FC<AddUserProps> = ({onAddUser, editUserInfo, editUserStat
     };
 
     if (userPassword.trim() === '') {
-      console.log('introduzca una contraseña');
       return;
     }
 

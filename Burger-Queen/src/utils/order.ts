@@ -4,7 +4,6 @@ interface Quantities {
   [productId: string]: number;
 }
 
-
 function createOrder(client: string, selectedProducts:Product[], quantities: Quantities) {
   const currentDate = new Date();
   const timezoneOffset = currentDate.getTimezoneOffset() * 60000; // Get the time zone offset in milliseconds
@@ -18,13 +17,11 @@ function createOrder(client: string, selectedProducts:Product[], quantities: Qua
         product: item,
       };
     }),
-    status: "pending",
+    status: 'pending',
     dataEntry: formattedDate,
   };
 
   return sendOrder(orden);
 }
-
-
 
 export { createOrder } ;

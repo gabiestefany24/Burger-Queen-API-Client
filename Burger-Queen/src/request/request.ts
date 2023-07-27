@@ -1,15 +1,6 @@
 import { Product } from '../components/productCard/ProductCard';
 import { NewProduct, NewUser, User } from '../utils/interface';
 
-// interface Data {
-//   accessToken: string,
-//   user: {
-//       email: string,
-//       role: string,
-//       id: number,
-//   }[];
-// }
-
 interface AuthResponse {
   accessToken: string;
   user: User;

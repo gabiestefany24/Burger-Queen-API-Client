@@ -1,6 +1,5 @@
 import handleLogout from '../utils/Logout';
 
-
 describe('handleLogout function', () => {
   test('should remove "token" and "userRole" from localStorage', () => {
     localStorage.setItem('token', 'sampleToken');
@@ -19,6 +18,5 @@ describe('handleLogout function', () => {
 
     expect(mockNavigate).toHaveBeenCalledWith('/');
   });
-
   
 });

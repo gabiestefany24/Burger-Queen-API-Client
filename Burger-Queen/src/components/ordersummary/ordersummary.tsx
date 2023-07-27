@@ -31,7 +31,6 @@ const Ordersummary: React.FC<OrdersummaryProps> = ({ selectedProducts, onRemoveI
 
   const handleCreateOrder = () => {
     if (client.trim() === '') {
-      console.log('introduzca nombre de cliente');
       return;
     }
 
