@@ -47,18 +47,18 @@ const Login: React.FC = () => {
             <form className={styles['login-form']}>
               <input
                 className={styles.inputLogin}
-                type="text"
-                autoComplete="current-password"
+                type='text'
+                autoComplete='current-password'
                 value={user}
                 onChange={(e) => setUser(e.target.value)}
-                placeholder="Usuario"
+                placeholder='Usuario'
               ></input>
               <input
                 className={styles.inputLogin}
-                type="password"
+                type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Contraseña"
+                placeholder='Contraseña'
               ></input>
             </form>
             {error && <p className={styles.error}>{error}</p>}
@@ -71,5 +71,7 @@ const Login: React.FC = () => {
     </>
   );
 };
+
+//prueba de repositorio
 
 export default Login;
