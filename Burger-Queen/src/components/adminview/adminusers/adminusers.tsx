@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AddUsers from './AddUsers/AddUsers';
 import UsersList from './UserList/UserList';
-import styles from './AdminUsers.module.css';
+import styles from './adminusers.module.css';
 import { getUserData, deleteUser, addUser, editUser  } from '../../../request/request';
 import { User, NewUser } from '../../../utils/interface';
 import Modalremove from '../../modalremove/Modalremove';

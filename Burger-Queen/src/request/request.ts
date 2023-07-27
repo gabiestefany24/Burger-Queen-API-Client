@@ -21,7 +21,7 @@ function requestget(user: string, password: string): Promise<AuthResponse> {
     password: password
   };
   
-  return fetch('http://localhost:8080/login', {
+  return fetch('https://burger-queen-api-mock-production-0a91.up.railway.app/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const token = localStorage.getItem('token');
   
 function sendOrder(order: object): Promise<string> {
   
-  return fetch('http://localhost:8080/orders', {
+  return fetch('https://burger-queen-api-mock-production-0a91.up.railway.app/orders', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ function sendOrder(order: object): Promise<string> {
 
 const getProductData = async (token: string): Promise<Product[]> => {
   try {
-    const response = await fetch('http://localhost:8080/products', {
+    const response = await fetch('https://burger-queen-api-mock-production-0a91.up.railway.app/products', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -92,7 +92,7 @@ const getProductData = async (token: string): Promise<Product[]> => {
 
 const getUserData = async (token: string): Promise<User[]> => {
   try {
-    const response = await fetch('http://localhost:8080/users', {
+    const response = await fetch('https://burger-queen-api-mock-production-0a91.up.railway.app/users', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -107,7 +107,7 @@ const getUserData = async (token: string): Promise<User[]> => {
 };
 
 function getOrders() {
-  return fetch('http://localhost:8080/orders', {
+  return fetch('https://burger-queen-api-mock-production-0a91.up.railway.app/orders', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -129,12 +129,12 @@ function getOrders() {
     });
 }
 
-function updateDataDelivering(id: number) {
+function updateDataDelivering(id: number, status : string) {
   const currentDate = new Date();
   const timezoneOffset = currentDate.getTimezoneOffset() * 60000; // Get the time zone offset in milliseconds
   const localDate = new Date(currentDate.getTime() - timezoneOffset); // Adjust the date based on the time zone offset
   const formattedDate = localDate.toISOString().slice(0, 19).replace('T', ' ');
-  fetch(`http://localhost:8080/orders/${id}`, {
+  fetch(`https://burger-queen-api-mock-production-0a91.up.railway.app/orders/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ function updateDataDelivering(id: number) {
     },
     body: JSON.stringify(
       {
-        'status': 'delivering',
+        'status': status,
         'dataDelivering': formattedDate, 
       }
     )
@@ -150,7 +150,7 @@ function updateDataDelivering(id: number) {
 }
 
 function addProduct(product: NewProduct) {
-  fetch('http://localhost:8080/products', {
+  fetch('https://burger-queen-api-mock-production-0a91.up.railway.app/products', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -181,7 +181,7 @@ function addProduct(product: NewProduct) {
 }
 
 function deleteProduct(id: string) {
-  return fetch(`http://localhost:8080/products/${id}`, {
+  return fetch(`https://burger-queen-api-mock-production-0a91.up.railway.app/products/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ function deleteProduct(id: string) {
 }
 
 function editProduct(id: string, product: NewProduct) {
-  return fetch(`http://localhost:8080/products/${id}`, {
+  return fetch(`https://burger-queen-api-mock-production-0a91.up.railway.app/products/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -235,7 +235,7 @@ function editProduct(id: string, product: NewProduct) {
 }
 
 function deleteUser(id: string) {
-  return fetch(`http://localhost:8080/users/${id}`, {
+  return fetch(`https://burger-queen-api-mock-production-0a91.up.railway.app/users/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -258,7 +258,7 @@ function deleteUser(id: string) {
 }
 
 function addUser(user: NewUser) {
-  fetch('http://localhost:8080/users', {
+  fetch('https://burger-queen-api-mock-production-0a91.up.railway.app/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -288,7 +288,7 @@ function addUser(user: NewUser) {
 }
 
 function editUser(id: string, user: NewUser) {
-  return fetch(`http://localhost:8080/users/${id}`, {
+  return fetch(`https://burger-queen-api-mock-production-0a91.up.railway.app/users/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
