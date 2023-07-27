@@ -3,7 +3,7 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import Ordersummary, {
   OrdersummaryProps,
 } from '../components/ordersummary/ordersummary';
-// import React from "react";
+// import React from 'react';
 const product = {
   id: 3,
   name: 'test',
@@ -13,10 +13,10 @@ const product = {
   dateEntry: '2022-03-05 15:14:10',
   quantity: 1,
 };
-// jest.mock("../components/productCard/ProductCard", () => ({
+// jest.mock('../components/productCard/ProductCard', () => ({
 //   Product: jest.fn(),
 // }));
-// describe("Ordersummary", () => {
+// describe('Ordersummary', () => {
 const mockProps: OrdersummaryProps = {
   selectedProducts: [product],
   onRemoveItem: jest.fn(),

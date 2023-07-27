@@ -16,41 +16,29 @@ export default defineConfig({
         background_color: '#ffffff',
         icons: [
           {
-            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/fullLogo-b86f60fc.png',
-            'sizes': '144x144',
+            'src': 'addNewProduct.png',
+            'sizes': '45x45',
             'type': 'image/png',
             'purpose': 'any maskable'
           },
           {
-            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/addNewProduct.png',
-            'sizes': '144x144',
-            'type': 'image/png',
-            'purpose': 'any maskable'
-          }, 
-          {
-            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/añadir.png',
-            'sizes': '144x144',
+            'src': 'Fondo.png',
+            'sizes': '144x144', //uno de los requisitos es que uno de los iconos tenga una dimension de 144x144
             'type': 'image/png',
             'purpose': 'any maskable'
           }, 
           // {
-          //   'src': 'https://burger-queen-api-client-h5p58iyfj-danipreciado.vercel.app/assets/cancelorange.png',
+          //   'src': 'cancelorange.png',
           //   'sizes': '144x144',
           //   'type': 'image/png',
           //   'purpose': 'any maskable'
           // }, 
-          {
-            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/cancelwhite.png',
-            'sizes': '144x144',
-            'type': 'image/png',
-            'purpose': 'any maskable'
-          }, 
-          {
-            'src': 'https://burger-queen-api-client-pi.vercel.app/assets/checkgreen.png',
-            'sizes': '144x144',
-            'type': 'image/png',
-            'purpose': 'any maskable'
-          }
+          // {
+          //   'src': 'cancelwhite.png',
+          //   'sizes': '144x144',
+          //   'type': 'image/png',
+          //   'purpose': 'any maskable'
+          // }, 
         ]
         // Add other custom properties here if needed.
       },
