@@ -10,7 +10,7 @@ export default defineConfig({
       manifest: {
         name: 'Burger Queen',
         short_name: 'BQ',
-        start_url: '.',
+        start_url: '/',
         display: 'standalone',
         theme_color: '#ffffff',
         background_color: '#ffffff',
