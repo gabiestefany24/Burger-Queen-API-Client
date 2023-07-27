@@ -5,6 +5,7 @@ import Waiterorder from '../components/waiterorder/Waiterorder';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createOrder } from '../utils/order';
 import { Product } from '../components/productCard/ProductCard';
+
 jest.mock('../components/productCard/ProductCard', () => {
   const ProductCardMock = () => <div data-testid="product-card-mock">Mocked ProductCard</div>;
   return ProductCardMock;

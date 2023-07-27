@@ -124,7 +124,6 @@ describe('Login', () => {
       expect(localStorage.getItem('userRole')).toBe('admin');
       expect(document.location.pathname).toBe('/adminview');
       expect(screen.getByText('admin')).toBeInTheDocument();
-      console.log(document.location.pathname);
       
     });
   });
@@ -177,7 +176,6 @@ describe('Login', () => {
       expect(localStorage.getItem('userRole')).toBe('chef');
       expect(document.location.pathname).toBe('/chefview');
       expect(screen.getByText('chef')).toBeInTheDocument();
-      console.log(document.location.pathname);
       
     });
   });

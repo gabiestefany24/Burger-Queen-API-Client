@@ -32,7 +32,6 @@ const AddProduct: React.FC<AddProductProps> = ({ onAddProduct, editProductInfo, 
     handleEditProduct();
   }, [editProductInfo]);
   
-  console.log(editProductState);
   const handleClick = () => {
     const newProduct = {
       name: productName,

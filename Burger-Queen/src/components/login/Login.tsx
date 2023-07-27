@@ -2,17 +2,6 @@ import React, { useState /* useContext */ } from 'react';
 import styles from './Login.module.css';
 import { requestget } from '../../request/request';
 import { useNavigate } from 'react-router-dom';
-// import background from "../../assets/fondo_login.png";
-
-// import handleLogout from '../../utils/Logout';
-
-// import { AuthContext } from '../Authcontext/Authcontext.tsx';
-
-// export interface LoginProps extends React.HTMLAttributes<HTMLButtonElement> {
-//   handleLogin?: () => void;
-//   requestget: () => Promise<void>; // Agrega la propiedad requestget al tipo LoginProps
-//   navigate: () => void; // Agrega la propiedad navigate al tipo LoginProps
-// }
 
 const Login: React.FC = () => {
   const [user, setUser] = useState('');
@@ -20,29 +9,15 @@ const Login: React.FC = () => {
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
-  /*  const navigateToOrder = (): void => {
-    navigate('/waiterorder');
-    }; */
-
-  // const handleLogoutClick = () => {
-
-  //     handleLogout(navigate);
-  //   };
 
   const handleLogin = () => {
     setError('');
-    // localStorage.removeItem('userRole');
     requestget(user, password)
       .then((data) => {
         const token: string = data.accessToken;
         localStorage.setItem('token', token);
         const userRole = data.user.role;
         localStorage.setItem('userRole', userRole);
-        console.log(token);
-        console.log(data);
-        // navigate('/waiterorder');
-        // const userRole = localStorage.getItem('userRole');
-        console.log(userRole);
         if (userRole === 'admin') {
           navigate('/adminview');
         } else if (userRole === 'waiter') {
@@ -50,7 +25,6 @@ const Login: React.FC = () => {
         } else if (userRole === 'chef') {
           navigate('/chefview');
         }
-        // navigateToOrder();
       })
       .catch((error) => {
         setError(error.message);

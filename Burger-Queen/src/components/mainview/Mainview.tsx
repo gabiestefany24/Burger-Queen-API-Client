@@ -11,8 +11,7 @@ const Mainview: React.FC = () => {
   };
   return (
     <>
-      {/* <article className="w-screen bg-center bg-no-repeat bg-cover min-h-screen" style={{ background: `url(${background})` }}> */}
-      <article className={styles.backgroundImageSection} /* style={{ background: `url(${background})` }} */ >
+      <article className={styles.backgroundImageSection} >
         <article className={styles['container-mainview']}>
           <img className={styles.bigLogo} src={logo} alt="Mi imagen" />
           <article className={styles['welcomeMessage-article']}>

@@ -14,7 +14,6 @@ const Navadmin:  React.FC<NavadminProps> = ({ onOptionChange, selectedOption }) 
     /* window.location.pathname !== path ? setHasClicked(false) : setHasClicked(true); */
     onOptionChange(option);
   };
-  console.log(selectedOption);
 
   return (
     <>
