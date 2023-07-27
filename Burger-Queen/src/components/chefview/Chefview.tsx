@@ -24,7 +24,7 @@ const Chefview: React.FC = () => {
         <div className={styles.buttonsNav}>
 
           <button className={status === 'pending'? styles.selectedBtnNav:styles.btnNav} onClick={() => handleNavClick('pending')}>Órdenes</button>
-          <button className={status === 'delivering'? styles.selectedBtnNav:styles.btnNav}onClick={() => handleNavClick('delivering´')}>Historial</button>
+          <button className={status === 'delivering'? styles.selectedBtnNav:styles.btnNav}onClick={() => handleNavClick('delivering')}>Historial</button>
         </div>
       </nav>
       <section className={styles.containercheforders}>
