@@ -7,11 +7,9 @@ interface NavadminProps {
 }
 
 const Navadmin:  React.FC<NavadminProps> = ({ onOptionChange, selectedOption }) => {
-  /* const [hasClicked, setHasClicked] = useState(false) */
      
   const handleClick = (option: string) => {
      
-    /* window.location.pathname !== path ? setHasClicked(false) : setHasClicked(true); */
     onOptionChange(option);
   };
 

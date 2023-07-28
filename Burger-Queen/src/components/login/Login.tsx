@@ -1,4 +1,4 @@
-import React, { useState /* useContext */ } from 'react';
+import React, { useState} from 'react';
 import styles from './Login.module.css';
 import { requestget } from '../../request/request';
 import { useNavigate } from 'react-router-dom';
@@ -71,7 +71,5 @@ const Login: React.FC = () => {
     </>
   );
 };
-
-//prueba de repositorio
 
 export default Login;

@@ -1,5 +1,4 @@
 import styles from './Mainview.module.css';
-/* import background from '../../assets/Fondo.png'; */
 import logo from '../../assets/fullLogo.png';
 import { useNavigate } from 'react-router-dom';
 

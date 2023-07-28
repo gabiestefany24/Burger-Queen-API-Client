@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './ProductsList.module.css';
-// import { getProductData } from '../../../../request/request';
-// import { Product } from '../../../productCard/ProductCard';
 import editIcon from '../../../../assets/editIcon.png';
 import deleteIcon from '../../../../assets/deleteIcon.png';
 import { Product } from '../../../productCard/ProductCard';
@@ -12,18 +10,7 @@ interface ProductListProps {
   editProduct: (product:object) => void;
 }
 const ProductList: React.FC<ProductListProps>= ({products, showModal, editProduct}) => {
-  // const [products, setProducts] = useState<Product[]>([]);
-
-  /*  useEffect(() => {
-        const fetchProducts = async () => {
-            const token = localStorage.getItem('token');
-            const data = await getProductData(token || '');
-            setProducts(data);
-        };
-
-        fetchProducts();
-    }, [products]);
- */
+  
   return (
     <>
       <div className={styles.tableContainer}>

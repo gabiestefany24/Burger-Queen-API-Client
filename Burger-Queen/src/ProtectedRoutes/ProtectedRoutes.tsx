@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { /* Route, */ Navigate, RouteProps } from 'react-router-dom';
+import { Navigate, RouteProps } from 'react-router-dom';
 
 type ProtectedRouteProps = {
     element: ReactNode;

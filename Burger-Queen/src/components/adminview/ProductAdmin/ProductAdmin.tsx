@@ -56,16 +56,7 @@ const ProductAdmin: React.FC = () => {
     setEditProductState(false); 
     setEditProductInfo({});// Set the editProductState to false when returning from editing
   };
-  /*    useEffect(() => {
-        const fetchProducts = async () => {
-            const token = localStorage.getItem('token');
-            const data = await getProductData(token || '');
-            setProducts(data);
-        };
-
-        fetchProducts();
-    }, []); */
-
+ 
   return (
     <>
     

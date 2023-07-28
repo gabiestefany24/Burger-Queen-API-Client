@@ -7,7 +7,7 @@ export interface ModalRemoveProps {
     deleteItem: () => void,
     isProduct: boolean
 }
-const Modalremove: React.FC<ModalRemoveProps> = ({ state, deleteItem, isProduct } /* requestDelete, id}  */) => {
+const Modalremove: React.FC<ModalRemoveProps> = ({ state, deleteItem, isProduct }) => {
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modalContent}>

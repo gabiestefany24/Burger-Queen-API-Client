@@ -1,4 +1,4 @@
-import React, { /* useState */ } from 'react';
+import React from 'react';
 import styles from './AdminView.module.css';
 import iconkitchen from '../../assets/iconkitchen.png';
 import  iconwaiter from '../../assets/iconwaiter.png';

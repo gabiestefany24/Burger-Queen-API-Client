@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './AddProduct.module.css';
 import addProductIcon from '../../../../assets/addNewProduct.png';
-/* import { addProduct } from '../../../../request/request'; */
 import { NewProduct } from '../../../../utils/interface';
 import { Product } from '../../../productCard/ProductCard';
 import returnIcon from '../../../../assets/returnIcon.png';

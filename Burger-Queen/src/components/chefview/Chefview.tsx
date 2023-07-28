@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import styles from './Chefview.module.css';
-// import logo from "../../assets/smallLogo.png";
-// import lupa from "../../assets/searchIcon.png";
-// import outicon from "../../assets/outicon.png";
 import OrderCard from '../orderCard/OrderCard';
-// import handleLogout from '../../utils/Logout';
 import Header from '../header/Header';
 
 const Chefview: React.FC = () => {
-  // const navigate = useNavigate();
+ 
   const [status, setStatus] = useState('pending');
-  // const [chefview, setChefview] = useState<boolean>(false); 
 
   const handleNavClick = (newStatus: string) => {
     setStatus(newStatus);

@@ -39,10 +39,7 @@ const Waiterorder: React.FC = () => {
           setIsOrderCreated(true);
           resolve(response);
         });
-      /*   .catch((error) => {
-          // Manejar el error en caso de que la orden no se pueda crear
-          console.log(error);
-        }); */
+      
     });
   };
 
